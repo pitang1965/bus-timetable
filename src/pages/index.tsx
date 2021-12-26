@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState, Fragment } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
-import styles from '../styles/Home.module.css';
+import styles from '../../styles/Home.module.css';
 import Airtable from 'airtable';
 import { Listbox, Transition } from '@headlessui/react';
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
