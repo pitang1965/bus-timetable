@@ -6,6 +6,7 @@ import Image from 'next/image';
 import styles from '../../styles/Home.module.css';
 import Airtable from 'airtable';
 import { StationListBox } from '../components/StationListBox';
+import { TimeTable } from '../components/TimeTable';
 
 const Home: NextPage = () => {
   type Fieldset = {
@@ -46,6 +47,7 @@ const Home: NextPage = () => {
           }
           setStations(formattedRecords);
           setSelectedStationFrom(formattedRecords[0]);
+          setSelectedStationTo(formattedRecords[0]);
         }
       );
   }, []);
@@ -75,6 +77,7 @@ const Home: NextPage = () => {
           selected={selectedStationTo}
           setSelected={setSelectedStationTo}
         />
+        <TimeTable />
       </main>
       <footer className={styles.footer}>
         <a
