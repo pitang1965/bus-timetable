@@ -2,17 +2,13 @@ import React, { Fragment } from 'react';
 import type { VFC } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
-
-type Fieldset = {
-  id: string;
-  name: string;
-};
+import type { FieldSet } from 'airtable';
 
 type StationListBoxProps = {
   label: string;
-  stations: Fieldset[];
-  selected: Fieldset | undefined;
-  setSelected: React.Dispatch<React.SetStateAction<Fieldset | undefined>>;
+  stations: FieldSet[];
+  selected: FieldSet | undefined;
+  setSelected: React.Dispatch<React.SetStateAction<FieldSet | undefined>>;
 };
 
 export const StationListBox: VFC<StationListBoxProps> = (props) => (

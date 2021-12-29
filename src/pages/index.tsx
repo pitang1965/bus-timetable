@@ -5,22 +5,19 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../../styles/Home.module.css';
 import Airtable from 'airtable';
+import type { FieldSet } from 'airtable';
 import { StationListBox } from '../components/StationListBox';
 import { TimeTable } from '../components/TimeTable';
 
 const Home: NextPage = () => {
-  type Fieldset = {
-    id: string;
-    name: string;
-  };
-  const [stations, setStations] = useState<Fieldset[]>([]);
+  const [stations, setStations] = useState<FieldSet[]>([]);
   const [selectedStationFrom, setSelectedStationFrom] = useState<
-    Fieldset | undefined
+  FieldSet | undefined
   >();
   const [selectedStationTo, setSelectedStationTo] = useState<
-    Fieldset | undefined
+  FieldSet | undefined
   >();
-  const formattedRecords: Fieldset[] = [];
+  const formattedRecords: FieldSet[] = [];
 
   const getTimeTable = useCallback(async () => {
     const base = new Airtable({
