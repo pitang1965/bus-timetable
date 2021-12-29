@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import type { VFC } from 'react';
+import type { Key, VFC } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 import type { FieldSet } from 'airtable';
@@ -30,7 +30,7 @@ export const StationListBox: VFC<StationListBoxProps> = (props) => (
         <Listbox.Options className='absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm z-10'>
           {props.stations.map((station) => (
             <Listbox.Option
-              key={station.id}
+              key={station.id as Key}
               className={({ active }) => `${
                 active ? 'text-amber-900 bg-amber-100' : 'text-gray-900'
               }

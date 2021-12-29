@@ -12,10 +12,10 @@ import { TimeTable } from '../components/TimeTable';
 const Home: NextPage = () => {
   const [stations, setStations] = useState<FieldSet[]>([]);
   const [selectedStationFrom, setSelectedStationFrom] = useState<
-  FieldSet | undefined
+    FieldSet | undefined
   >();
   const [selectedStationTo, setSelectedStationTo] = useState<
-  FieldSet | undefined
+    FieldSet | undefined
   >();
   const formattedRecords: FieldSet[] = [];
 
@@ -29,20 +29,21 @@ const Home: NextPage = () => {
       .eachPage(
         function page(records, fetchNextPage) {
           records.forEach(function (record) {
-            console.log(`Name: ${record.get('Name')} Id: ${record.id}`);
+            // console.log(`Name: ${record.get('Name')} Id: ${record.id}`);
             formattedRecords.push({
-              id: record.get('Id') as string,
-              name: record.get('Name') as string,
+              id: record.id,
+              name: record.get('Name'),
             });
           });
           fetchNextPage();
         },
-        function done(err) {
+        async function done(err) {
           if (err) {
             console.error(err);
             return;
           }
           setStations(formattedRecords);
+          console.table(formattedRecords);
           setSelectedStationFrom(formattedRecords[0]);
           setSelectedStationTo(formattedRecords[0]);
         }
@@ -51,8 +52,8 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     getTimeTable();
-    console.table(stations);
   }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -74,7 +75,7 @@ const Home: NextPage = () => {
           selected={selectedStationTo}
           setSelected={setSelectedStationTo}
         />
-        <TimeTable />
+        <TimeTable from={selectedStationFrom} to={selectedStationTo} />
       </main>
       <footer className={styles.footer}>
         <a
