@@ -1,8 +1,8 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiHandler } from 'next'
+import type { NextApiRequest, NextApiResponse } from 'next';
 import { stationTable as table, minifyRecords } from './utils/Airtable';
 
-export default async function handler(req, res): NextApiHandler {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
   try {
     const records = await table.select({}).firstPage();
     const minifiedRecords = minifyRecords(records);
