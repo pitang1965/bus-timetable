@@ -1,16 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useCallback, useEffect, useState } from 'react';
-import type { NextPage } from 'next';
+import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../../styles/Home.module.css';
-import Airtable from 'airtable';
 import type { FieldSet } from 'airtable';
 import { StationListBox } from '../components/StationListBox';
 import { TimeTable } from '../components/TimeTable';
 import Navbar from '../components/Navbar';
 
-const Home: NextPage = () => {
+const Home: NextPage = ({ stationRecords }) => {
   const [stations, setStations] = useState<FieldSet[]>([]);
   const [selectedStationFrom, setSelectedStationFrom] = useState<
     FieldSet | undefined
@@ -18,42 +17,13 @@ const Home: NextPage = () => {
   const [selectedStationTo, setSelectedStationTo] = useState<
     FieldSet | undefined
   >();
-  const formattedRecords: FieldSet[] = [];
-
-  const getTimeTable = useCallback(async () => {
-    const base = new Airtable({
-      apiKey: process.env.NEXT_PUBLIC_AIRTABLE_API_KEY,
-    }).base(process.env.NEXT_PUBLIC_AIRTABLE_BASE_ID as string);
-
-    base('Station')
-      .select()
-      .eachPage(
-        function page(records, fetchNextPage) {
-          records.forEach(function (record) {
-            // console.log(`Name: ${record.get('Name')} Id: ${record.id}`);
-            formattedRecords.push({
-              id: record.id,
-              name: record.get('Name'),
-            });
-          });
-          fetchNextPage();
-        },
-        async function done(err) {
-          if (err) {
-            console.error(err);
-            return;
-          }
-          setStations(formattedRecords);
-          console.table(formattedRecords);
-          setSelectedStationFrom(formattedRecords[0]);
-          setSelectedStationTo(formattedRecords[0]);
-        }
-      );
-  }, []);
 
   useEffect(() => {
-    getTimeTable();
-  }, []);
+    setStations(stationRecords);
+    console.log(stationRecords[0]);
+    setSelectedStationFrom(stationRecords[0]);
+    setSelectedStationTo(stationRecords[0]);
+  });
 
   return (
     <div className={styles.container}>
@@ -92,6 +62,24 @@ const Home: NextPage = () => {
       </footer>
     </div>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  try {
+    const res = await fetch('http://localhost:3000/api/getStation');
+    return {
+      props: {
+        stationRecords: await res.json(),
+      },
+    };
+  } catch (err) {
+    console.error(err);
+    return {
+      props: {
+        err: 'バス停取得で問題が発生しました。',
+      },
+    };
+  }
 };
 
 export default Home;
