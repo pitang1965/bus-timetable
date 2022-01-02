@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -9,7 +9,7 @@ import { StationListBox } from '../components/StationListBox';
 import { TimeTable } from '../components/TimeTable';
 import Navbar from '../components/Navbar';
 
-const Home: NextPage = ({ stationRecords }) => {
+const Home: NextPage = ({ stationData, timeTableData }) => {
   const [stations, setStations] = useState<FieldSet[]>([]);
   const [selectedStationFrom, setSelectedStationFrom] = useState<
     FieldSet | undefined
@@ -19,11 +19,11 @@ const Home: NextPage = ({ stationRecords }) => {
   >();
 
   useEffect(() => {
-    setStations(stationRecords);
-    console.log(stationRecords[0]);
-    setSelectedStationFrom(stationRecords[0]);
-    setSelectedStationTo(stationRecords[0]);
-  });
+    setStations(stationData);
+    console.log(stationData[0]);
+    setSelectedStationFrom(stationData[0]);
+    setSelectedStationTo(stationData[0]);
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -46,7 +46,7 @@ const Home: NextPage = ({ stationRecords }) => {
           selected={selectedStationTo}
           setSelected={setSelectedStationTo}
         />
-        <TimeTable from={selectedStationFrom} to={selectedStationTo} />
+        <TimeTable from={selectedStationFrom} to={selectedStationTo} data={timeTableData} />
       </main>
       <footer className={styles.footer}>
         <a
@@ -66,17 +66,21 @@ const Home: NextPage = ({ stationRecords }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const res = await fetch('http://localhost:3000/api/getStation');
+    const res_station = await fetch('http://localhost:3000/api/getStation');
+    const res_time_table = await fetch(
+      'http://localhost:3000/api/getTimeTable'
+    );
     return {
       props: {
-        stationRecords: await res.json(),
+        stationData: await res_station.json(),
+        timeTableData: await res_time_table.json(),
       },
     };
   } catch (err) {
     console.error(err);
     return {
       props: {
-        err: 'バス停取得で問題が発生しました。',
+        err: 'データ取得で問題が発生しました。',
       },
     };
   }

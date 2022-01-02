@@ -5,6 +5,7 @@ import type { FieldSet } from 'airtable';
 type TimeTableProps = {
   from: FieldSet | undefined;
   to: FieldSet | undefined;
+  data: FieldSet[] | undefined;
 };
 
 export const TimeTable: VFC<TimeTableProps> = (props) => {
