@@ -7,7 +7,7 @@ export default function Navbar() {
       <div className='flex'>
         <a
           href='/api/logout'
-          className='rounded bg-blue-500 hover:bg-blue-600 text-white py-2 px-4'
+          className='rounded bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 hidden'
         >
           ログアウト
         </a>
