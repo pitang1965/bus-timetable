@@ -11,7 +11,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     return (res);
   } catch (err) {
     res.statusCode = 500;
-    res.json({ msg: 'バス停取得で問題発生' });
+    res.json({ msg: 'バス停情報の取得で問題発生' });
     return (res);
   }
 }

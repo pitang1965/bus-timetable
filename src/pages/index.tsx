@@ -1,15 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import type { GetStaticProps, NextPage } from 'next';
+import type { FieldSet } from 'airtable';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../../styles/Home.module.css';
-import type { FieldSet } from 'airtable';
 import { StationListBox } from '../components/StationListBox';
 import { TimeTable } from '../components/TimeTable';
 import Navbar from '../components/Navbar';
 
-const Home: NextPage = ({ stationData, timeTableData }) => {
+const Home: NextPage = ({ stationData, timeTableData, busData }) => {
   const [selectedStationFrom, setSelectedStationFrom] = useState<
     FieldSet | undefined
   >();
@@ -44,9 +44,10 @@ const Home: NextPage = ({ stationData, timeTableData }) => {
           setSelected={setSelectedStationTo}
         />
         <TimeTable
+          busTable={busData}
+          timeTableTable={timeTableData}
           from={selectedStationFrom}
           to={selectedStationTo}
-          timeTable={timeTableData}
         />
       </main>
       <footer className={styles.footer}>
@@ -71,10 +72,12 @@ export const getStaticProps: GetStaticProps = async () => {
     const res_time_table = await fetch(
       'http://localhost:3000/api/getTimeTable'
     );
+    const res_bus = await fetch('http://localhost:3000/api/getBus');
     return {
       props: {
         stationData: await res_station.json(),
         timeTableData: await res_time_table.json(),
+        busData: await res_bus.json(),
       },
     };
   } catch (err) {

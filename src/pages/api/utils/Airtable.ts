@@ -5,6 +5,7 @@ const base = new Airtable({
   apiKey: process.env.AIRTABLE_API_KEY,
 }).base(process.env.AIRTABLE_BASE_ID as string);
 
+const busTable = base('Bus')
 const stationTable = base('Station');
 const timeTableTable = base('TimeTable');
 
@@ -19,4 +20,4 @@ const minifyRecords = (records:Records<FieldSet>) => {
   return records.map(record => getMinifiedRecord(record));
 }
 
-export { stationTable, timeTableTable, minifyRecords };
+export { busTable, stationTable, timeTableTable, minifyRecords };
