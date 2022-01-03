@@ -10,7 +10,6 @@ import { TimeTable } from '../components/TimeTable';
 import Navbar from '../components/Navbar';
 
 const Home: NextPage = ({ stationData, timeTableData }) => {
-  const [stations, setStations] = useState<FieldSet[]>([]);
   const [selectedStationFrom, setSelectedStationFrom] = useState<
     FieldSet | undefined
   >();
@@ -19,10 +18,8 @@ const Home: NextPage = ({ stationData, timeTableData }) => {
   >();
 
   useEffect(() => {
-    setStations(stationData);
-    console.log(stationData[0]);
     setSelectedStationFrom(stationData[0]);
-    setSelectedStationTo(stationData[0]);
+    setSelectedStationTo(stationData[1]);
   }, []);
 
   return (
@@ -36,17 +33,21 @@ const Home: NextPage = ({ stationData, timeTableData }) => {
         <h1 className={styles.title}>バス時刻表</h1>
         <StationListBox
           label='出発地：'
-          stations={stations}
+          stations={stationData}
           selected={selectedStationFrom}
           setSelected={setSelectedStationFrom}
         />
         <StationListBox
           label='行き先：'
-          stations={stations}
+          stations={stationData}
           selected={selectedStationTo}
           setSelected={setSelectedStationTo}
         />
-        <TimeTable from={selectedStationFrom} to={selectedStationTo} data={timeTableData} />
+        <TimeTable
+          from={selectedStationFrom}
+          to={selectedStationTo}
+          timeTable={timeTableData}
+        />
       </main>
       <footer className={styles.footer}>
         <a

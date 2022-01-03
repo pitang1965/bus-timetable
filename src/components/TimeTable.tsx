@@ -1,34 +1,64 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import type { VFC } from 'react';
-import type { FieldSet, Record } from 'airtable';
+import type { FieldSet } from 'airtable';
 
 type TimeTableProps = {
   from: FieldSet | undefined;
   to: FieldSet | undefined;
-  data: FieldSet[] | undefined;
+  timeTable: FieldSet[] | undefined;
 };
 
-const TableBody = (props) => {
-  console.log(props.data);
+const formatTimeString = (hour: number, minute: number): string => {
+  let hourString = String(hour);
+  if (hourString.length < 2) {
+    hourString = '0' + hourString;
+  }
+  let minuteString = String(minute);
+  if (minuteString.length < 2) {
+    minuteString = '0' + minuteString;
+  }
+
+  return hourString + ':' + minuteString;
+};
+
+export const TimeTable: VFC<TimeTableProps> = ({ from, to, timeTable }) => {
+  const [filteredTimeTable, setFilteredTimeTable] = useState([]);
+
+  useEffect(() => {
+    if (from === undefined || to === undefined)
+      return <div>データ取得中...</div>;
+
+    const filtered = timeTable?.filter(function (record, index) {
+      if (record.fields?.From === undefined && record.fields?.From.length === 0)
+        return false;
+      return (
+        from.id === record.fields.From[0] &&
+        record.fields.To.find(function (id) {
+          return id === to.id;
+        })
+      );
+    });
+    setFilteredTimeTable(filtered);
+    console.log(filteredTimeTable);
+  }, [from, timeTable, to]);
+
+  if (from === to) {
+    return <div className='mt-4'>出発地と行き先が同じです</div>;
+  }
+
   return (
     <main>
       <ul>
-        {props.data.map((record) => (
-          <li key={record.id}><p>{`#${record.fields.Id} ${record.fields.From} --> ${record.fields.To} ${record.fields.Hour}:${record.fields.Minute} `}</p></li>
+        {filteredTimeTable.map((record) => (
+          <li key={record.id}>
+            <div>
+              <p>
+                {formatTimeString(record.fields.Hour, record.fields.Minute)}
+              </p>
+            </div>
+          </li>
         ))}
       </ul>
     </main>
-  );
-};
-
-export const TimeTable: VFC<TimeTableProps> = (props) => {
-  return (
-    <div className='mt-4'>
-      {props.from === props.to ? (
-        '出発地と行き先が同じです'
-      ) : (
-        <TableBody data={props.data} />
-      )}
-    </div>
   );
 };
