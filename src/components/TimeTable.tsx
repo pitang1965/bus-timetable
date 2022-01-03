@@ -9,7 +9,11 @@ type TimeTableProps = {
   to: FieldSet | undefined;
 };
 
-const formatTimeString = (hour: number, minute: number): string => {
+const formatTimeString = (
+  hour: number,
+  minute: number,
+  arriveBeforeOpeningTime: boolean
+): string => {
   let hourString = String(hour);
   if (hourString.length < 2) {
     hourString = '0' + hourString;
@@ -19,7 +23,12 @@ const formatTimeString = (hour: number, minute: number): string => {
     minuteString = '0' + minuteString;
   }
 
-  return hourString + ':' + minuteString;
+  let finalString = hourString + ':' + minuteString;
+  if (arriveBeforeOpeningTime) {
+    finalString += ' *';
+  }
+
+  return finalString;
 };
 
 export const TimeTable: VFC<TimeTableProps> = ({
@@ -76,7 +85,11 @@ export const TimeTable: VFC<TimeTableProps> = ({
           {filteredTimeTable.map((record) => (
             <tr key={record.id}>
               <td className={borderClassName}>
-                {formatTimeString(record.fields.Hour, record.fields.Minute)}
+                {formatTimeString(
+                  record.fields.Hour,
+                  record.fields.Minute,
+                  record.fields['Arrive-before-opening-time']
+                )}
               </td>
               <td className={borderClassName}>
                 {busId2BusName(record.fields.Bus[0])}
@@ -86,6 +99,7 @@ export const TimeTable: VFC<TimeTableProps> = ({
           ))}
         </tbody>
       </table>
+      <p><mark>*:</mark> 8:30に武蔵村山製作所に間に合うバス</p>
     </main>
   );
 };
