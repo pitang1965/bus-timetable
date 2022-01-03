@@ -72,7 +72,7 @@ export const TimeTable: VFC<TimeTableProps> = ({
   const borderClassName = 'border-2 border-current';
 
   return (
-    <main className='pt-4'>
+    <main className='mt-4 pt-4'>
       <table className={`table-fixed w-full ${borderClassName}`}>
         <thead>
           <tr>
@@ -99,7 +99,9 @@ export const TimeTable: VFC<TimeTableProps> = ({
           ))}
         </tbody>
       </table>
-      <p><mark>*:</mark> 8:30に武蔵村山製作所に間に合うバス</p>
+      <p className='mt-2'>
+        <mark>*:</mark> 8:30に武蔵村山製作所に間に合うバス
+      </p>
     </main>
   );
 };
