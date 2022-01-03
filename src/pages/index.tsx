@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { StationListBox } from '../components/StationListBox';
 import { TimeTable } from '../components/TimeTable';
 import Navbar from '../components/Navbar';
+import { SwitchHorizontalIcon } from '@heroicons/react/solid';
 
 const Home: NextPage = ({ stationData, timeTableData, busData }) => {
   const [selectedStationFrom, setSelectedStationFrom] = useState<
@@ -21,6 +22,12 @@ const Home: NextPage = ({ stationData, timeTableData, busData }) => {
     setSelectedStationTo(stationData[1]);
   }, []);
 
+  const transposeStations = () => {
+    const work = selectedStationFrom;
+    setSelectedStationFrom(selectedStationTo);
+    setSelectedStationTo(work);
+  };
+
   return (
     <div className='container p-4'>
       <Head>
@@ -29,13 +36,18 @@ const Home: NextPage = ({ stationData, timeTableData, busData }) => {
       </Head>
       <Navbar />
       <main className='min-h-screen flex-column px-1'>
-        <h1 className='flex text-4xl font-bold justify-center'>時刻表</h1>
+        <h1 className='flex text-4xl text-blue-600/80 font-bold justify-center'>
+          時刻表
+        </h1>
         <StationListBox
           label='出発地：'
           stations={stationData}
           selected={selectedStationFrom}
           setSelected={setSelectedStationFrom}
         />
+        <button onClick={transposeStations}>
+          <SwitchHorizontalIcon className='rounded bg-blue-500 hover:bg-blue-600 text-white w-6 h-6 mt-4' />
+        </button>
         <StationListBox
           label='行き先：'
           stations={stationData}
@@ -57,7 +69,7 @@ const Home: NextPage = ({ stationData, timeTableData, busData }) => {
         >
           Powered by{' '}
           <span>
-            <Image src='/vercel.svg' alt='Vercel Logo' width={72} height={16}/>
+            <Image src='/vercel.svg' alt='Vercel Logo' width={72} height={16} />
           </span>
         </a>
       </footer>
