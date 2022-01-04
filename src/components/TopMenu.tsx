@@ -52,31 +52,6 @@ export default function TopMenu() {
               </Menu.Item>
               <Menu.Item>
                 {({ active }) => (
-                  <button
-                    className={`${
-                      active ? 'bg-violet-500 text-white' : 'text-gray-900'
-                    } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
-                    onClick={() => alert('工事中です。')}
-                  >
-                    {active ? (
-                      <ChatActiveIcon
-                        className='w-5 h-5 mr-2'
-                        aria-hidden='true'
-                      />
-                    ) : (
-                      <ChatInactiveIcon
-                        className='w-5 h-5 mr-2'
-                        aria-hidden='true'
-                      />
-                    )}
-                    掲示板
-                  </button>
-                )}
-              </Menu.Item>
-            </div>
-            <div className='px-1 py-1'>
-              <Menu.Item>
-                {({ active }) => (
                   <Link href='/about' passHref>
                     <button
                       className={`${
@@ -99,6 +74,8 @@ export default function TopMenu() {
                   </Link>
                 )}
               </Menu.Item>
+            </div>
+            <div className='px-1 py-1'>
               <Menu.Item>
                 {({ active }) => (
                   <button
@@ -163,26 +140,7 @@ function HomeActiveIcon(props: any) {
   );
 }
 
-function ChatInactiveIcon(props: any) {
-  return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      className='h-6 w-6'
-      fill='none'
-      viewBox='0 0 24 24'
-      stroke='currentColor'
-    >
-      <path
-        strokeLinecap='round'
-        strokeLinejoin='round'
-        strokeWidth='2'
-        d='M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z'
-      />
-    </svg>
-  );
-}
-
-function ChatActiveIcon(props: any) {
+function AboutInactiveIcon(props: any) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -190,13 +148,30 @@ function ChatActiveIcon(props: any) {
       viewBox='0 0 20 20'
       fill='currentColor'
     >
-      <path d='M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z' />
-      <path d='M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z' />
+      <path
+        fillRule='evenodd'
+        d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z'
+        clipRule='evenodd'
+      />
     </svg>
   );
 }
 
-function AboutInactiveIcon(props: any) {
+function AboutActiveIcon(props: any) {
+  return (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      className='h-5 w-5'
+      viewBox='0 0 20 20'
+      fill='currentColor'
+    >
+      <path d='M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z' />
+      <path d='M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z' />
+    </svg>
+  );
+}
+
+function ContactInactiveIcon(props: any) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -215,7 +190,7 @@ function AboutInactiveIcon(props: any) {
   );
 }
 
-function AboutActiveIcon(props: any) {
+function ContactActiveIcon(props: any) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -230,83 +205,6 @@ function AboutActiveIcon(props: any) {
         strokeWidth='2'
         d='M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
       />
-    </svg>
-  );
-}
-
-function ContactInactiveIcon(props: any) {
-  return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      className='h-5 w-5'
-      viewBox='0 0 20 20'
-      fill='currentColor'
-    >
-      <path
-        fillRule='evenodd'
-        d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z'
-        clipRule='evenodd'
-      />
-    </svg>
-  );
-}
-
-function ContactActiveIcon(props: any) {
-  return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      className='h-5 w-5'
-      viewBox='0 0 20 20'
-      fill='currentColor'
-    >
-      <path d='M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z' />
-      <path d='M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z' />
-    </svg>
-  );
-}
-
-function DeleteInactiveIcon(props: any) {
-  return (
-    <svg
-      {...props}
-      viewBox='0 0 20 20'
-      fill='none'
-      xmlns='http://www.w3.org/2000/svg'
-    >
-      <rect
-        x='5'
-        y='6'
-        width='10'
-        height='10'
-        fill='#EDE9FE'
-        stroke='#A78BFA'
-        strokeWidth='2'
-      />
-      <path d='M3 6H17' stroke='#A78BFA' strokeWidth='2' />
-      <path d='M8 6V4H12V6' stroke='#A78BFA' strokeWidth='2' />
-    </svg>
-  );
-}
-
-function DeleteActiveIcon(props: any) {
-  return (
-    <svg
-      {...props}
-      viewBox='0 0 20 20'
-      fill='none'
-      xmlns='http://www.w3.org/2000/svg'
-    >
-      <rect
-        x='5'
-        y='6'
-        width='10'
-        height='10'
-        fill='#8B5CF6'
-        stroke='#C4B5FD'
-        strokeWidth='2'
-      />
-      <path d='M3 6H17' stroke='#C4B5FD' strokeWidth='2' />
-      <path d='M8 6V4H12V6' stroke='#C4B5FD' strokeWidth='2' />
     </svg>
   );
 }
