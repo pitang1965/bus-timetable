@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import type { GetStaticProps, NextPage } from 'next';
-import type { FieldSet } from 'airtable';
+import { FieldSet } from 'airtable';
 import Head from 'next/head';
 import Image from 'next/image';
 import { StationListBox } from '../components/StationListBox';
@@ -21,9 +21,33 @@ const Home: NextPage<{
     FieldSet | undefined
   >();
 
+  // localStorageからデータを呼んで出発地と行き先を設定
   useEffect(() => {
-    setSelectedStationFrom(stationData && stationData[0]);
-    setSelectedStationTo(stationData && stationData[1]);
+    const fromJson = localStorage.getItem('stationFrom');
+    if (fromJson === null) {
+      setSelectedStationFrom(stationData && stationData[0]);
+    } else {
+      const fromString = JSON.parse(fromJson);
+      setSelectedStationFrom(
+        stationData &&
+          stationData.find(function (record) {
+            return (record.fields as any).Name === fromString;
+          })
+      );
+    }
+
+    const toJson = localStorage.getItem('stationTo');
+    if (toJson === null) {
+      setSelectedStationTo(stationData && stationData[1]);
+    } else {
+      const toString = JSON.parse(toJson);
+      setSelectedStationTo(
+        stationData &&
+          stationData.find(function (record) {
+            return (record.fields as any).Name === toString;
+          })
+      );
+    }
   }, []);
 
   const transposeStations = () => {
@@ -31,6 +55,22 @@ const Home: NextPage<{
     setSelectedStationFrom(selectedStationTo);
     setSelectedStationTo(work);
   };
+
+  useEffect(() => {
+    let json;
+
+    // 出発地をローカルストレージに保存
+    if (selectedStationFrom) {
+      json = JSON.stringify((selectedStationFrom?.fields as any).Name);
+      localStorage.setItem('stationFrom', json);
+    }
+
+    // 行き先をローカルストレージに保存
+    if (selectedStationTo) {
+      json = JSON.stringify((selectedStationTo?.fields as any).Name);
+      localStorage.setItem('stationTo', json);
+    }
+  }, [selectedStationFrom, selectedStationTo]);
 
   return (
     <div className='container p-4'>
@@ -83,11 +123,9 @@ const Home: NextPage<{
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const origin = process.env.SERVER_URL ?? "http://localhost:3000"
+    const origin = process.env.SERVER_URL ?? 'http://localhost:3000';
     const res_station = await fetch(`${origin}/api/getStation`);
-    const res_time_table = await fetch(
-      `${origin}/api/getTimeTable`
-    );
+    const res_time_table = await fetch(`${origin}/api/getTimeTable`);
     const res_bus = await fetch(`${origin}/api/getBus`);
     return {
       props: {
