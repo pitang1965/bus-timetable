@@ -20,13 +20,13 @@ const about = () => {
         <article className=' pt-6 leading-loose'>
           <h1 className='text-2xl font-bold mb-2'>今後の予定</h1>
           <p>次の改良を考えています。</p>
-          <ol className='list-decimal list-inside ml-2'>
-            <li>公共のバス情報の登録</li>
+          <ol className='list-decimal list-outside ml-6'>
+            <li>公共のバス情報の登録（イオンモールなど）</li>
             <li>
               PWA化してスマホのネィティブアプリのようにインストール可能にする
             </li>
             <li>ログイン機能</li>
-            <li>掲示板機能</li>
+            <li>問い合わせ機能</li>
             <li>見た目の改良</li>
             <li>その他内部的な改良</li>
           </ol>
