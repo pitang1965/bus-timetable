@@ -9,7 +9,11 @@ import { TimeTable } from '../components/TimeTable';
 import Navbar from '../components/Navbar';
 import { SwitchHorizontalIcon } from '@heroicons/react/solid';
 
-const Home: NextPage = ({ stationData, timeTableData, busData }) => {
+const Home: NextPage<{
+  stationData: FieldSet[] | undefined;
+  timeTableData: FieldSet[] | undefined;
+  busData: FieldSet[] | undefined;
+}> = ({ stationData, timeTableData, busData }) => {
   const [selectedStationFrom, setSelectedStationFrom] = useState<
     FieldSet | undefined
   >();
@@ -18,8 +22,8 @@ const Home: NextPage = ({ stationData, timeTableData, busData }) => {
   >();
 
   useEffect(() => {
-    setSelectedStationFrom(stationData[0]);
-    setSelectedStationTo(stationData[1]);
+    setSelectedStationFrom(stationData && stationData[0]);
+    setSelectedStationTo(stationData && stationData[1]);
   }, []);
 
   const transposeStations = () => {

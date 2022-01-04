@@ -3,8 +3,8 @@ import type { VFC } from 'react';
 import type { FieldSet } from 'airtable';
 
 type TimeTableProps = {
-  busTable: FieldSet[];
-  timeTableTable: FieldSet[];
+  busTable: FieldSet[] | undefined;
+  timeTableTable: FieldSet[] | undefined;
   from: FieldSet | undefined;
   to: FieldSet | undefined;
 };
@@ -37,32 +37,39 @@ export const TimeTable: VFC<TimeTableProps> = ({
   from,
   to,
 }) => {
-  const [filteredTimeTable, setFilteredTimeTable] = useState([]);
+  const [filteredTimeTable, setFilteredTimeTable] = useState<
+    FieldSet[] | undefined
+  >([]);
 
   useEffect(() => {
-    if (from === undefined || to === undefined)
-      return <div>データ取得中...</div>;
-
-    const filtered = timeTableTable.filter(function (record, index) {
-      if (record.fields?.From === undefined && record.fields?.From.length === 0)
-        return false;
-      return (
-        from.id === record.fields?.From[0] &&
-        record.fields?.To.find(function (id) {
-          return id === to.id;
-        })
-      );
-    });
+    const filtered =
+      timeTableTable &&
+      timeTableTable.filter(function (record) {
+        if (
+          (record.fields as any).From === undefined &&
+          (record.fields as any).From.length === 0
+        )
+          return false;
+        return (
+          from?.id === (record.fields as any).From[0] &&
+          (record.fields as any).To.find(function (id: string) {
+            return id === to?.id;
+          })
+        );
+      });
     setFilteredTimeTable(filtered);
     console.log(busTable);
   }, [busTable, from, timeTableTable, to]);
 
+  if (from === undefined || to === undefined) return <div>データ取得中...</div>;
   const busId2BusName = (id: string): string => {
-    const theBus = busTable.find(function (bus) {
-      return bus.id === id;
-    });
+    const theBus =
+      busTable &&
+      busTable.find(function (bus) {
+        return bus.id === id;
+      });
 
-    return theBus?.fields?.Name;
+    return (theBus?.fields as any).Name;
   };
 
   if (from === to) {
@@ -82,21 +89,24 @@ export const TimeTable: VFC<TimeTableProps> = ({
           </tr>
         </thead>
         <tbody>
-          {filteredTimeTable.map((record) => (
-            <tr key={record.id}>
-              <td className={borderClassName}>
-                {formatTimeString(
-                  record.fields.Hour,
-                  record.fields.Minute,
-                  record.fields['Arrive-before-opening-time']
-                )}
-              </td>
-              <td className={borderClassName}>
-                {busId2BusName(record.fields.Bus[0])}
-              </td>
-              <td className={borderClassName}>{record.fields.Note}</td>
-            </tr>
-          ))}
+          {filteredTimeTable &&
+            filteredTimeTable.map((record) => (
+              <tr key={record.id as string}>
+                <td className={borderClassName}>
+                  {formatTimeString(
+                    (record.fields as any).Hour,
+                    (record.fields as any).Minute,
+                    (record.fields as any)['Arrive-before-opening-time']
+                  )}
+                </td>
+                <td className={borderClassName}>
+                  {busId2BusName((record.fields as any).Bus[0])}
+                </td>
+                <td className={borderClassName}>
+                  {(record.fields as any).Note}
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
       <p className='mt-2'>
