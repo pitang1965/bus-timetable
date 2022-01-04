@@ -1,12 +1,19 @@
-import '../../styles/globals.css';
+import type { ReactElement, ReactNode } from 'react';
+import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
+import '../../styles/globals.css';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <div className="container mx-auto max-w-xl bg-blue-100">
-      <Component {...pageProps} />
-    </div>
-  );
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout ?? ((page) => page);
+  return getLayout(<Component {...pageProps} />);
 }
 
 export default MyApp;

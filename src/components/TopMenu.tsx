@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Menu, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 import { MenuIcon } from '@heroicons/react/solid';
@@ -27,24 +28,26 @@ export default function TopMenu() {
             <div className='px-1 py-1 '>
               <Menu.Item>
                 {({ active }) => (
-                  <button
-                    className={`${
-                      active ? 'bg-violet-500 text-white' : 'text-gray-900'
-                    } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
-                  >
-                    {active ? (
-                      <HomeActiveIcon
-                        className='w-5 h-5 mr-2'
-                        aria-hidden='true'
-                      />
-                    ) : (
-                      <HomeInactiveIcon
-                        className='w-5 h-5 mr-2'
-                        aria-hidden='true'
-                      />
-                    )}
-                    ホーム
-                  </button>
+                  <Link href='/' passHref>
+                    <button
+                      className={`${
+                        active ? 'bg-violet-500 text-white' : 'text-gray-900'
+                      } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                    >
+                      {active ? (
+                        <HomeActiveIcon
+                          className='w-5 h-5 mr-2'
+                          aria-hidden='true'
+                        />
+                      ) : (
+                        <HomeInactiveIcon
+                          className='w-5 h-5 mr-2'
+                          aria-hidden='true'
+                        />
+                      )}
+                      ホーム
+                    </button>
+                  </Link>
                 )}
               </Menu.Item>
               <Menu.Item>
@@ -53,6 +56,7 @@ export default function TopMenu() {
                     className={`${
                       active ? 'bg-violet-500 text-white' : 'text-gray-900'
                     } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                    onClick={() => alert('工事中です。')}
                   >
                     {active ? (
                       <ChatActiveIcon
@@ -73,24 +77,26 @@ export default function TopMenu() {
             <div className='px-1 py-1'>
               <Menu.Item>
                 {({ active }) => (
-                  <button
-                    className={`${
-                      active ? 'bg-violet-500 text-white' : 'text-gray-900'
-                    } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
-                  >
-                    {active ? (
-                      <AboutActiveIcon
-                        className='w-5 h-5 mr-2'
-                        aria-hidden='true'
-                      />
-                    ) : (
-                      <AboutInactiveIcon
-                        className='w-5 h-5 mr-2'
-                        aria-hidden='true'
-                      />
-                    )}
-                    本アプリについて
-                  </button>
+                  <Link href='/about' passHref>
+                    <button
+                      className={`${
+                        active ? 'bg-violet-500 text-white' : 'text-gray-900'
+                      } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                    >
+                      {active ? (
+                        <AboutActiveIcon
+                          className='w-5 h-5 mr-2'
+                          aria-hidden='true'
+                        />
+                      ) : (
+                        <AboutInactiveIcon
+                          className='w-5 h-5 mr-2'
+                          aria-hidden='true'
+                        />
+                      )}
+                      本アプリについて
+                    </button>
+                  </Link>
                 )}
               </Menu.Item>
               <Menu.Item>
@@ -99,6 +105,7 @@ export default function TopMenu() {
                     className={`${
                       active ? 'bg-violet-500 text-white' : 'text-gray-900'
                     } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                    onClick={() => alert('工事中です。')}
                   >
                     {active ? (
                       <ContactActiveIcon
@@ -124,7 +131,7 @@ export default function TopMenu() {
   );
 }
 
-function HomeInactiveIcon(props:any) {
+function HomeInactiveIcon(props: any) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -143,7 +150,7 @@ function HomeInactiveIcon(props:any) {
   );
 }
 
-function HomeActiveIcon(props:any) {
+function HomeActiveIcon(props: any) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -156,7 +163,7 @@ function HomeActiveIcon(props:any) {
   );
 }
 
-function ChatInactiveIcon(props:any) {
+function ChatInactiveIcon(props: any) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -175,7 +182,7 @@ function ChatInactiveIcon(props:any) {
   );
 }
 
-function ChatActiveIcon(props:any) {
+function ChatActiveIcon(props: any) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -189,7 +196,7 @@ function ChatActiveIcon(props:any) {
   );
 }
 
-function AboutInactiveIcon(props:any) {
+function AboutInactiveIcon(props: any) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -208,7 +215,7 @@ function AboutInactiveIcon(props:any) {
   );
 }
 
-function AboutActiveIcon(props:any) {
+function AboutActiveIcon(props: any) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -227,7 +234,7 @@ function AboutActiveIcon(props:any) {
   );
 }
 
-function ContactInactiveIcon(props:any) {
+function ContactInactiveIcon(props: any) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -244,7 +251,7 @@ function ContactInactiveIcon(props:any) {
   );
 }
 
-function ContactActiveIcon(props:any) {
+function ContactActiveIcon(props: any) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -258,7 +265,7 @@ function ContactActiveIcon(props:any) {
   );
 }
 
-function DeleteInactiveIcon(props:any) {
+function DeleteInactiveIcon(props: any) {
   return (
     <svg
       {...props}
@@ -281,7 +288,7 @@ function DeleteInactiveIcon(props:any) {
   );
 }
 
-function DeleteActiveIcon(props:any) {
+function DeleteActiveIcon(props: any) {
   return (
     <svg
       {...props}

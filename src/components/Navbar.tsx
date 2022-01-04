@@ -1,11 +1,14 @@
 import React from 'react';
 import TopMenu from '../components/TopMenu';
+import Link from 'next/link';
 
 export default function Navbar() {
   return (
-    <nav className="flex justify-between items-center py-4">
+    <nav className='flex justify-between items-center'>
       <TopMenu />
-      <p className='text-2xl font-bold text-grey-800'>バス時刻表</p>
+      <Link href='/' passHref>
+        <p className='text-2xl font-bold text-grey-800'>バス時刻表</p>
+      </Link>
       <div className='flex'>
         <a
           href='/api/logout'
