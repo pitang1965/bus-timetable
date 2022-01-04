@@ -1,8 +1,10 @@
 import React from 'react';
+import TopMenu from '../components/TopMenu';
 
 export default function Navbar() {
   return (
     <nav className="flex justify-between items-center py-4">
+      <TopMenu />
       <p className='text-2xl font-bold text-grey-800'>バス時刻表</p>
       <div className='flex'>
         <a
