@@ -1,4 +1,6 @@
 import Layout from '../components/Layout';
+import Image from 'next/image';
+import siteUrlBarcode from '../../public/site-url.jpg';
 
 const about = () => {
   return (
@@ -16,6 +18,14 @@ const about = () => {
           </p>
           <p>しばらく改良しますので、よろしければ使ってみてください。</p>
         </article>
+
+        <figure className='m-4'>
+          <Image
+            src={siteUrlBarcode}
+            alt='https://j-bus-time-table.vercel.app/'
+          />
+          <figcaption className='text-center'>サイトURL</figcaption>
+        </figure>
 
         <article className=' pt-6 leading-loose'>
           <h1 className='text-2xl font-bold mb-2'>今後の予定</h1>
