@@ -9,14 +9,14 @@ const about = () => {
         <h1 className='flex text-4xl text-blue-600/80 font-bold justify-center'>
           本アプリについて
         </h1>
-        <article className=' pt-6 leading-loose'>
+        <article className=' pt-6 ml leading-loose'>
           <h1 className='text-2xl font-bold mb-2'>概要</h1>
+          <p>2022-01-06更新</p>
           <p>品証のまきのSです。</p>
           <p>これは会社のバスの時刻を調べるためのアプリです。</p>
           <p>
             2021年度の年末年始で新技術の学習を兼ねて作成したもので、まだ一部作成中です。
           </p>
-          <p>2022-01-05: 榎一丁目から立川駅北口のバスを追加しました。</p>
           <p>しばらく改良しますので、よろしければ使ってみてください。</p>
         </article>
 
@@ -32,14 +32,13 @@ const about = () => {
           <h1 className='text-2xl font-bold mb-2'>今後の予定</h1>
           <p>次の改良を考えています。</p>
           <ol className='list-decimal list-outside ml-6'>
-            <li>公共のバス情報の登録（イオンモールなど）</li>
+            <li>公共のバス情報の登録（榎木一丁目→立川駅北口のみ追加済）</li>
             <li>
               PWA化してスマホのネィティブアプリのようにインストール可能にする
             </li>
             <li>ログイン機能</li>
             <li>問い合わせ機能</li>
             <li>見た目の改良</li>
-            <li>その他内部的な改良</li>
           </ol>
         </article>
       </main>
