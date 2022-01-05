@@ -58,7 +58,6 @@ export const TimeTable: VFC<TimeTableProps> = ({
         );
       });
     setFilteredTimeTable(filtered);
-    console.log(busTable);
   }, [busTable, from, timeTableTable, to]);
 
   if (from === undefined || to === undefined) return <div>データ取得中...</div>;
