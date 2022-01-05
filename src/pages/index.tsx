@@ -78,7 +78,7 @@ const Home: NextPage<{
         <link rel='icon' href='/favicon.svg' />
       </Head>
       <main className='min-h-screen flex-column px-1'>
-        <h1 className='flex text-4xl text-blue-600/80 font-bold justify-center'>
+        <h1 className='flex text-4xl text-blue-600/80 font-bold justify-center mb-4'>
           時刻表
         </h1>
         <StationListBox
@@ -87,9 +87,11 @@ const Home: NextPage<{
           selected={selectedStationFrom}
           setSelected={setSelectedStationFrom}
         />
-        <button onClick={transposeStations}>
-          <SwitchHorizontalIcon className='rounded bg-blue-500 hover:bg-blue-600 text-white w-6 h-6 mt-4' />
-        </button>
+        <div className='flex justify-center'>
+          <button onClick={transposeStations}>
+            <SwitchHorizontalIcon className='rounded bg-blue-500 hover:bg-blue-600 text-white w-10 h-10 mt-6 mb-0' />
+          </button>
+        </div>
         <StationListBox
           label='行き先：'
           stations={stationData}
