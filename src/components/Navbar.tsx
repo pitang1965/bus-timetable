@@ -12,13 +12,13 @@ export default function Navbar() {
       <div className='flex'>
         <a
           href='/api/logout'
-          className='rounded bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 hidden'
+          className='rounded bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 hidden'
         >
           ログアウト
         </a>
         <a
           href='/api/login'
-          className='rounded bg-blue-500 hover:bg-blue-600 text-white py-2 px-4'
+          className='rounded bg-blue-600 hover:bg-blue-700 text-white py-2 px-4'
         >
           ログイン
         </a>

@@ -8,7 +8,7 @@ export default function TopMenu() {
     <div className='z-20'>
       <Menu as='div' className='relative inline-block'>
         <div>
-          <Menu.Button className='inline-flex justify-center w-full px-2 py-2 text-black bg-black rounded-md bg-opacity-30 hover:bg-opacity-40 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'>
+          <Menu.Button aria-label='ポップアップメニュー' className='inline-flex justify-center w-full px-2 py-2 text-black bg-black rounded-md bg-opacity-30 hover:bg-opacity-40 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'>
             <MenuIcon
               className='w-5 h-5 text-violet-200 hover:text-violet-100'
               aria-hidden='true'
