@@ -32,7 +32,6 @@ const about = () => {
           <h1 className='text-2xl font-bold mb-2'>今後の予定</h1>
           <p>次の改良を考えています。</p>
           <ol className='list-decimal list-outside ml-6'>
-            <li>公共のバス情報の登録（榎木一丁目→立川駅北口のみ追加済）</li>
             <li>
               PWA化してスマホのネィティブアプリのようにインストール可能にする
             </li>
