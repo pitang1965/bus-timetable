@@ -106,7 +106,7 @@ const Home: NextPage<{
             setSelected={setSelectedStationFrom}
           />
           <div className='flex justify-center'>
-            <button alia-label='出発時と行き先を入れ替え' onClick={transposeStations}>
+            <button aria-label='出発時と行き先を入れ替え' onClick={transposeStations}>
               <SwitchHorizontalIcon className='rounded bg-blue-600 hover:bg-blue-700 text-white w-10 h-10 mt-6 mb-0' />
             </button>
           </div>

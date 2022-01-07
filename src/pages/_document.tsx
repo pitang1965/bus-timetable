@@ -6,7 +6,7 @@ type Props = {}
 class Document extends NextDocument<Props> {
   render() {
     return (
-      <Html>
+      <Html lang='ja'>
         <Head />
         <link rel='manifest' href='/manifest.json' />
         <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
