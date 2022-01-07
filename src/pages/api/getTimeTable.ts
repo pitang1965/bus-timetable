@@ -2,16 +2,28 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { timeTableTable as table, minifyRecords } from './utils/Airtable';
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
-  try {
-    const records = await table.select({ sort: [{ field: "Id", direction: "asc" }]}).firstPage();
-    const minifiedRecords = minifyRecords(records);
-    res.statusCode = 200;
-    res.json(minifiedRecords);
-    return (res);
-  } catch (err) {
-    res.statusCode = 500;
-    res.json({ msg: 'バス時刻表の取得で問題発生' });
-    return (res);
-  }
+export default function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<any>
+) {
+  const mergedRecords: any = [];
+  table.select({ sort: [{ field: 'Id', direction: 'asc' }] }).eachPage(
+    function page(records, fetchNextPage) {
+      records.forEach(function (record) {
+        mergedRecords.push(record);
+      });
+      fetchNextPage();
+    },
+    function done(err) {
+      if (err) {
+        res.statusCode = 500;
+        res.json({ msg: 'バス時刻表の取得で問題発生' });
+        return res;
+      }
+      const minifiedRecords = minifyRecords(mergedRecords);
+      res.statusCode = 200;
+      res.json(minifiedRecords);
+      return res;
+    }
+  );
 }
