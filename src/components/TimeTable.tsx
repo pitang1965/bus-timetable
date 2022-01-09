@@ -91,7 +91,7 @@ export const TimeTable: VFC<TimeTableProps> = ({
           {filteredTimeTable &&
             filteredTimeTable.map((record) => (
               <tr key={record.id as string}>
-                <td className={`w-1/6 ${cellClassName}`}>
+                <td className={`w-1/6 text-center ${cellClassName}`}>
                   {formatTimeString(
                     (record.fields as any).Hour,
                     (record.fields as any).Minute,
