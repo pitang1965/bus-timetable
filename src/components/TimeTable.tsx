@@ -79,38 +79,48 @@ export const TimeTable: VFC<TimeTableProps> = ({
 
   return (
     <main className='mt-4 pt-4'>
-      <table className={`table-auto w-full ${cellClassName}`}>
-        <thead>
-          <tr>
-            <th className={cellClassName}>時刻</th>
-            <th className={cellClassName}>バス名称</th>
-            <th className={cellClassName}>備考</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredTimeTable &&
-            filteredTimeTable.map((record) => (
-              <tr key={record.id as string}>
-                <td className={`w-1/6 text-center ${cellClassName}`}>
-                  {formatTimeString(
-                    (record.fields as any).Hour,
-                    (record.fields as any).Minute,
-                    (record.fields as any)['Arrive-before-opening-time']
-                  )}
-                </td>
-                <td className={`w-1/4 ${cellClassName}`}>
-                  {busId2BusName((record.fields as any).Bus[0])}
-                </td>
-                <td className={cellClassName}>
-                  {(record.fields as any).Note}
-                </td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
-      <p className='mt-2'>
-        <mark>*:</mark> 8:30に武蔵村山製作所に間に合うバス
-      </p>
+      {filteredTimeTable && filteredTimeTable.length === 0 ? (
+        <div>
+          データがありません。公共バスは現在、立川駅北口と榎木一丁目間のデータだけです。
+        </div>
+      ) : (
+        <table className={`table-auto w-full ${cellClassName}`}>
+          <thead>
+            <tr>
+              <th className={cellClassName}>時刻</th>
+              <th className={cellClassName}>バス名称</th>
+              <th className={cellClassName}>備考</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredTimeTable &&
+              filteredTimeTable.map((record) => (
+                <tr key={record.id as string}>
+                  <td className={`w-1/6 text-center ${cellClassName}`}>
+                    {formatTimeString(
+                      (record.fields as any).Hour,
+                      (record.fields as any).Minute,
+                      (record.fields as any)['Arrive-before-opening-time']
+                    )}
+                  </td>
+                  <td className={`w-1/4 ${cellClassName}`}>
+                    {busId2BusName((record.fields as any).Bus[0])}
+                  </td>
+                  <td className={cellClassName}>
+                    {(record.fields as any).Note}
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      )}
+      {filteredTimeTable && filteredTimeTable.length > 0 ? (
+        <p className='mt-2'>
+          <mark>*:</mark> 8:30に武蔵村山製作所に間に合うバス
+        </p>
+      ) : (
+        ''
+      )}
     </main>
   );
 };
