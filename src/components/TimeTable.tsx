@@ -75,33 +75,33 @@ export const TimeTable: VFC<TimeTableProps> = ({
     return <div className='mt-4'>出発地と行き先が同じです</div>;
   }
 
-  const borderClassName = 'border-2 border-current';
+  const cellClassName = 'border-2 border-slate-400 px-1';
 
   return (
     <main className='mt-4 pt-4'>
-      <table className={`table-fixed w-full ${borderClassName}`}>
+      <table className={`table-auto w-full ${cellClassName}`}>
         <thead>
           <tr>
-            <th className={borderClassName}>時刻</th>
-            <th className={borderClassName}>バス名称</th>
-            <th className={borderClassName}>備考</th>
+            <th className={cellClassName}>時刻</th>
+            <th className={cellClassName}>バス名称</th>
+            <th className={cellClassName}>備考</th>
           </tr>
         </thead>
         <tbody>
           {filteredTimeTable &&
             filteredTimeTable.map((record) => (
               <tr key={record.id as string}>
-                <td className={borderClassName}>
+                <td className={`w-1/6 ${cellClassName}`}>
                   {formatTimeString(
                     (record.fields as any).Hour,
                     (record.fields as any).Minute,
                     (record.fields as any)['Arrive-before-opening-time']
                   )}
                 </td>
-                <td className={borderClassName}>
+                <td className={`w-1/4 ${cellClassName}`}>
                   {busId2BusName((record.fields as any).Bus[0])}
                 </td>
-                <td className={borderClassName}>
+                <td className={cellClassName}>
                   {(record.fields as any).Note}
                 </td>
               </tr>
