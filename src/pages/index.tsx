@@ -133,7 +133,7 @@ const Home: NextPage<{
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const origin = process.env.SERVER_URL ?? 'http://localhost:3000';
+    const origin = process.env.AUTH0_BASE_URL ?? 'http://localhost:3000';
     const res_station = await fetch(`${origin}/api/getStation`);
     const res_time_table = await fetch(`${origin}/api/getTimeTable`);
     const res_bus = await fetch(`${origin}/api/getBus`);
