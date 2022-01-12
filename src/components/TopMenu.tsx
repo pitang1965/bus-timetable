@@ -6,7 +6,7 @@ import { MenuIcon } from '@heroicons/react/solid';
 export default function TopMenu() {
   return (
     <div className='z-20'>
-      <Menu as='div' className='relative inline-block'>
+      <Menu as='div' className='relative inline-block z-30'>
         <div>
           <Menu.Button aria-label='ポップアップメニュー' className='inline-flex justify-center w-full px-2 py-2 text-black bg-black rounded-md bg-opacity-30 hover:bg-opacity-40 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'>
             <MenuIcon
