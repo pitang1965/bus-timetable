@@ -18,7 +18,7 @@ export default function Navbar() {
       setIsLoggingOut(true);
       setMessage(`読み込み中...`);
     } else if (user) {
-      setMessage(`こんにちは、${user.name}さん。`);
+      setMessage(`こんにちは、${user?.nickname || user?.name}さん。`);
       setIsLoggingOut(false);
     } else {
       setMessage(`未ログイン`);
