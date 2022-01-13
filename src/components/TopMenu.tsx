@@ -8,7 +8,10 @@ export default function TopMenu() {
     <div className='z-20'>
       <Menu as='div' className='relative inline-block z-30'>
         <div>
-          <Menu.Button aria-label='ポップアップメニュー' className='inline-flex justify-center w-full px-2 py-2 text-black bg-black rounded-md bg-opacity-30 hover:bg-opacity-40 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'>
+          <Menu.Button
+            aria-label='ポップアップメニュー'
+            className='inline-flex justify-center w-full px-2 py-2 text-black bg-black rounded-md bg-opacity-30 hover:bg-opacity-40 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'
+          >
             <MenuIcon
               className='w-5 h-5 text-violet-200 hover:text-violet-100'
               aria-hidden='true'
@@ -78,25 +81,26 @@ export default function TopMenu() {
             <div className='px-1 py-1'>
               <Menu.Item>
                 {({ active }) => (
-                  <button
-                    className={`${
-                      active ? 'bg-violet-500 text-white' : 'text-gray-900'
-                    } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
-                    onClick={() => alert('工事中です。')}
-                  >
-                    {active ? (
-                      <ContactActiveIcon
-                        className='w-5 h-5 mr-2'
-                        aria-hidden='true'
-                      />
-                    ) : (
-                      <ContactInactiveIcon
-                        className='w-5 h-5 mr-2'
-                        aria-hidden='true'
-                      />
-                    )}
-                    お問い合わせ
-                  </button>
+                  <Link href='/contact' passHref>
+                    <button
+                      className={`${
+                        active ? 'bg-violet-500 text-white' : 'text-gray-900'
+                      } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                    >
+                      {active ? (
+                        <ContactActiveIcon
+                          className='w-5 h-5 mr-2'
+                          aria-hidden='true'
+                        />
+                      ) : (
+                        <ContactInactiveIcon
+                          className='w-5 h-5 mr-2'
+                          aria-hidden='true'
+                        />
+                      )}
+                      お問い合わせ
+                    </button>
+                  </Link>
                 )}
               </Menu.Item>
             </div>

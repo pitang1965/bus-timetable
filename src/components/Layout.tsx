@@ -8,7 +8,7 @@ type Props = {
 
 const Layout: VFC<Props> = (props) => {
   return (
-    <div className='container p-2 mx-auto max-w-xl bg-blue-100'>
+    <div className='container min-h-screen p-2 mx-auto max-w-xl bg-blue-100'>
       <Navbar />
       <main>{props.children}</main>
       <Footer />
