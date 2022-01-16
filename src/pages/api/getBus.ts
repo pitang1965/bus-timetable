@@ -7,11 +7,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     const records = await table.select({}).firstPage();
     const minifiedRecords = minifyRecords(records);
     res.statusCode = 200;
-    res.json(minifiedRecords);
+    await res.json(minifiedRecords);
     return (res);
   } catch (err) {
     res.statusCode = 500;
-    res.json({ msg: 'バス情報の取得で問題発生' });
+    await res.json({ msg: 'バス情報の取得で問題発生' });
     return (res);
   }
 }

@@ -13,12 +13,27 @@ const contact = withPageAuthRequired(({ user }: { user: any }) => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
+    reset,
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    alert(JSON.stringify(data));
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    try {
+      const res = fetch('/api/sendMail', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      console.log('res: ', res);
+      reset();
+      alert('お問い合わせが送信されました。');
+    } catch (error) {
+      console.error('Fetch error : ', error);
+      alert(JSON.stringify(error));
+    }
   };
 
   return (
@@ -26,6 +41,7 @@ const contact = withPageAuthRequired(({ user }: { user: any }) => {
       <h1 className='flex text-4xl text-blue-600/80 font-bold justify-center'>
         お問い合わせ
       </h1>
+      <p className='mt-8'>牧野SへのGmailに送られます。</p>
       <form onSubmit={handleSubmit(onSubmit)} className='my-4 mx-2'>
         <fieldset className='flex gap-2'>
           <label className='w-16 p-1'>名前</label>
@@ -56,7 +72,8 @@ const contact = withPageAuthRequired(({ user }: { user: any }) => {
               maxLength: 500,
             })}
             placeholder='問い合わせ内容'
-            className='grow p-1'
+            rows={10}
+            className='grow p-1 leading-5'
           />
         </fieldset>
         {errors.inquiry && (
