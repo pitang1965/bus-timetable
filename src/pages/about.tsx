@@ -5,7 +5,7 @@ import siteUrlBarcode from '../../public/site-url.jpg';
 const about = () => {
   return (
     <Layout>
-      <main className='min-h-screen flex-column px-1'>
+      <main className='flex-column px-1'>
         <h1 className='flex text-4xl text-blue-600/80 font-bold justify-center'>
           本アプリについて
         </h1>

@@ -27,7 +27,7 @@ export default function Navbar() {
   }, [user, error, isLoading]);
 
   return (
-    <>
+    <div className='flex flex-col'>
       <nav className='flex justify-between items-center'>
         <div className='basis-1/3'>
           <TopMenu />
@@ -63,6 +63,6 @@ export default function Navbar() {
         </div>
       </nav>
       {user && <p className='mx-2 self-center mt-2'>{message}</p>}
-    </>
+    </div>
   );
 }
