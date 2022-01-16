@@ -42,7 +42,7 @@ const contact = withPageAuthRequired(({ user }: { user: any }) => {
         <h1 className='flex text-4xl text-blue-600/80 font-bold justify-center'>
           お問い合わせ
         </h1>
-        <p className='mt-8'>牧野SへのGmailに送られます。</p>
+        <p className='mt-8'>牧野SのGmailに送られます。</p>
         <form onSubmit={handleSubmit(onSubmit)} className='my-4 mx-2'>
           <fieldset className='flex gap-2'>
             <label className='w-16 p-1'>名前</label>

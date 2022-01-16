@@ -81,7 +81,11 @@ export const TimeTable: VFC<TimeTableProps> = ({
     <main className='mt-4 pt-4'>
       {filteredTimeTable && filteredTimeTable.length === 0 ? (
         <div>
-          データがありません。公共バスは現在、立川駅北口と榎木一丁目間のデータだけです。
+          データがありません。公共バスのデータは現在以下だけです。
+          <ul className='list-disc list-inside ml-4'>
+            <li>立川駅北口 ⇔ 榎木一丁目</li>
+            <li>村山ハイツ ⇒ 昭島駅北口</li>
+          </ul>
         </div>
       ) : (
         <table className={`table-auto w-full ${cellClassName}`}>
