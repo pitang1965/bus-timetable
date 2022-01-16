@@ -11,12 +11,10 @@ const about = () => {
         </h1>
         <article className=' pt-6 ml leading-loose'>
           <h1 className='text-2xl font-bold mb-2'>概要</h1>
-          <p>2022-01-07更新</p>
           <p>品証のまきのSです。</p>
           <p>これは会社のバスの時刻を調べるためのアプリです。</p>
           <p>2021年度の年末年始で新技術の学習を兼ねて作成したものです。</p>
-
-          <p>まだ、一部未実装で、改良もします。</p>
+          <p>データの問題など不具合があったら問い合わせフォームよりお願いします。</p>
         </article>
 
         <figure className='m-4'>
@@ -26,16 +24,6 @@ const about = () => {
           />
           <figcaption className='text-center'>サイトURL</figcaption>
         </figure>
-
-        <article className=' pt-6 leading-loose'>
-          <h1 className='text-2xl font-bold mb-2'>今後の予定</h1>
-          <p>次の改良を考えています。</p>
-          <ol className='list-decimal list-outside ml-6'>
-            <li>ログイン機能</li>
-            <li>問い合わせ機能</li>
-            <li>見た目の改良</li>
-          </ol>
-        </article>
       </main>
     </Layout>
   );
