@@ -1,6 +1,7 @@
 # バス時刻表
 ## 概要
 * 会社に通勤するための会社のバスと公共の一部のバスの時刻を調べるためのアプリです。
+* 私はクルマ又は徒歩で行ける距離ですが (^o^)
 
 ![image](https://user-images.githubusercontent.com/47315420/149931519-115e9ac0-4d8d-4432-82e8-b6098d944e59.png)
 
@@ -11,7 +12,7 @@
 ### [Auth0](https://auth0.com/)
 * Eメール又はGoogleでログイン。
 * [@auth0/nextjs-auth0](https://github.com/auth0/nextjs-auth0#readme)から利用。
-### [headledd UI](https://headlessui.dev/)
+### [headless UI](https://headlessui.dev/)
 * スタイルのないUIコンポーネントでTailwind CSSと組み合わせて使う。
 * 本プロジェクトでは、[Listbox(Select)](https://headlessui.dev/react/listbox)、[Menu(Dropdown)](https://headlessui.dev/react/menu)及び[Transition](https://headlessui.dev/react/transition)を使用。
 ### [heroicons](https://heroicons.com/)
@@ -32,7 +33,7 @@
 * 型の構文を備えたJavaScript。
 
 ### [Vercel](https://vercel.com)
-* サーバーレスデプロイをおこなうためのクラウドプラットフォーム
+* サーバーレスデプロイをおこなうためのクラウドプラットフォーム。
 * AirtableやSendGridのAPIは[Serverless Functions](https://vercel.com/docs/concepts/functions/serverless-functions)で実行。
 ## Getting Started
 
