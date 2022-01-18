@@ -1,6 +1,39 @@
-![image](https://user-images.githubusercontent.com/47315420/149931519-115e9ac0-4d8d-4432-82e8-b6098d944e59.png)
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# バス時刻表
+## 概要
+* 会社に通勤するための会社のバスと公共の一部のバスの時刻を調べるためのアプリです。
 
+![image](https://user-images.githubusercontent.com/47315420/149931519-115e9ac0-4d8d-4432-82e8-b6098d944e59.png)
+
+## 使用している技術、サービス及びライブラリ
+### [Airtable](https://airtable.com/)
+* スプレッドシートの親しみやすさでリレーショナルデータベースを作成及び共有できるサービス。
+* 本プロジェクトでは時刻表、バス停、バスの3つのテーブルを使用。
+### [Auth0](https://auth0.com/)
+* Eメール又はGoogleでログイン。
+* [@auth0/nextjs-auth0](https://github.com/auth0/nextjs-auth0#readme)から利用。
+### [headledd UI](https://headlessui.dev/)
+* スタイルのないUIコンポーネントでTailwind CSSと組み合わせて使う。
+* 本プロジェクトでは、[Listbox(Select)](https://headlessui.dev/react/listbox)、[Menu(Dropdown)](https://headlessui.dev/react/menu)及び[Transition](https://headlessui.dev/react/transition)を使用。
+### [heroicons](https://heroicons.com/)
+* アイコン集
+### [Next.js](https://nextjs.org/) 
+* Reactフレームワーク
+*  [create-next-app](https://github.com/vercel/next.js/tree/canary/packages/create-next-app)でプロジェクトを生成。
+### [next-pwa](https://openbase.com/js/next-pwa)
+* ほとんど設定することなくNext.jsのWebサイトをPWA(Progressive Web App)化する。
+### [React Hook Form](https://react-hook-form.com/)
+* 簡単にバリデーションする機能を持つReact用フォームライブラリ。
+### [SendGrid](https://sendgrid.com/)
+* 電子メール送信サービス
+* 問い合わせフォームからのメール送信に利用。
+### [Tailwind CSS](https://tailwindcss.com/)
+* HTMLに直接スタイリングを指定できるCSSフレームワーク。
+### [TypeScript](https://www.typescriptlang.org/)
+* 型の構文を備えたJavaScript。
+
+### [Vercel](https://vercel.com)
+* サーバーレスデプロイをおこなうためのクラウドプラットフォーム
+* AirtableやSendGridのAPIは[Serverless Functions](https://vercel.com/docs/concepts/functions/serverless-functions)で実行。
 ## Getting Started
 
 First, run the development server:
