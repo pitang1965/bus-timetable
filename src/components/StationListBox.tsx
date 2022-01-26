@@ -21,11 +21,11 @@ export const StationListBox: VFC<StationListBoxProps> = ({
     <Listbox value={selected} onChange={setSelected}>
       <div className='relative mt-4'>
         <Listbox.Label className='font-bold'>{label}</Listbox.Label>
-        <Listbox.Button className='relative w-full py-2 pl-3 pr-10 mt-2 text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm z-0'>
+        <Listbox.Button className='relative z-0 py-2 pr-10 pl-3 mt-2 w-full text-left bg-white rounded-lg focus-visible:border-indigo-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 shadow-md cursor-default sm:text-sm'>
           <span className='block truncate'>
             {(selected?.fields as any)?.Name}
           </span>
-          <span className='absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none'>
+          <span className='flex absolute inset-y-0 right-0 items-center pr-2 pointer-events-none'>
             <SelectorIcon
               className='w-5 h-5 text-gray-400'
               aria-hidden='true'
@@ -38,7 +38,7 @@ export const StationListBox: VFC<StationListBoxProps> = ({
           leaveFrom='opacity-100'
           leaveTo='opacity-0'
         >
-          <Listbox.Options className='absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm z-10'>
+          <Listbox.Options className='overflow-auto absolute z-10 py-1 mt-1 w-full max-h-80 text-base bg-white rounded-md focus:outline-none ring-1 ring-black/5 shadow-lg sm:text-sm'>
             {stations &&
               stations.map((station) => (
                 <Listbox.Option

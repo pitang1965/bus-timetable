@@ -5,17 +5,17 @@ import siteUrlBarcode from '../../public/site-url.jpg';
 const about = () => {
   return (
     <Layout>
-      <main className='flex-column px-1'>
-        <h1 className='flex text-4xl text-blue-600/80 font-bold justify-center'>
+      <main className='flex-col px-1'>
+        <h1 className='flex justify-center text-4xl font-bold text-blue-600/80'>
           本アプリについて
         </h1>
-        <article className=' pt-6 ml leading-loose'>
+        <article className='pt-6 leading-loose'>
           <h2 className='text-2xl font-bold'>概要</h2>
           <p>ME品証のまきのSです。</p>
           <p>これは会社のバスの時刻を調べるためのアプリです。</p>
           <p>2021年度の年末年始で新技術の学習を兼ねて作成したものです。</p>
 
-          <h2 className='text-2xl font-bold mt-2'>お願い</h2>
+          <h2 className='mt-2 text-2xl font-bold'>お願い</h2>
           <p>
             本WebアプリはPWAなのでWindows, Android,
             iOSにインストール可能です。ぜひ、インストールしてお使いください（iOSはSafariの[ホーム画面に追加]より）。

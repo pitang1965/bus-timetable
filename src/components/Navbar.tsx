@@ -34,7 +34,7 @@ export default function Navbar() {
         </div>
         <div className='basis-1/3 text-center'>
           <Link href='/' passHref>
-            <p className='text-2xl font-bold text-grey-800'>バス時刻表</p>
+            <p className='text-2xl font-bold text-gray-800'>バス時刻表</p>
           </Link>
         </div>
         <div className='basis-1/3 text-right'>
@@ -62,7 +62,7 @@ export default function Navbar() {
           </Link>
         </div>
       </nav>
-      {user && <p className='mx-2 self-center mt-2'>{message}</p>}
+      {user && <p className='self-center mx-2 mt-2'>{message}</p>}
     </div>
   );
 }

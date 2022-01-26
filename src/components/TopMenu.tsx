@@ -6,11 +6,11 @@ import { MenuIcon } from '@heroicons/react/solid';
 export default function TopMenu() {
   return (
     <div className='z-20'>
-      <Menu as='div' className='relative inline-block z-30'>
+      <Menu as='div' className='inline-block relative z-30'>
         <div>
           <Menu.Button
             aria-label='ポップアップメニュー'
-            className='inline-flex justify-center w-full px-2 py-2 text-black bg-black rounded-md bg-opacity-30 hover:bg-opacity-40 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'
+            className='inline-flex justify-center p-2 w-full text-black bg-black/50 hover:bg-black/40 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75'
           >
             <MenuIcon
               className='w-5 h-5 text-violet-200 hover:text-violet-100'
@@ -27,8 +27,8 @@ export default function TopMenu() {
           leaveFrom='opacity-100 scale-100'
           leaveTo='opacity-0 scale-95'
         >
-          <Menu.Items className='absolute left-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
-            <div className='px-1 py-1 '>
+          <Menu.Items className='absolute left-0 mt-2 w-56 bg-white rounded-md divide-y divide-gray-100 focus:outline-none ring-1 ring-black/5 shadow-lg origin-top-right'>
+            <div className='p-1'>
               <Menu.Item>
                 {({ active }) => (
                   <Link href='/' passHref>
@@ -39,12 +39,12 @@ export default function TopMenu() {
                     >
                       {active ? (
                         <HomeActiveIcon
-                          className='w-5 h-5 mr-2'
+                          className='mr-2 w-5 h-5'
                           aria-hidden='true'
                         />
                       ) : (
                         <HomeInactiveIcon
-                          className='w-5 h-5 mr-2'
+                          className='mr-2 w-5 h-5'
                           aria-hidden='true'
                         />
                       )}
@@ -63,12 +63,12 @@ export default function TopMenu() {
                     >
                       {active ? (
                         <AboutActiveIcon
-                          className='w-5 h-5 mr-2'
+                          className='mr-2 w-5 h-5'
                           aria-hidden='true'
                         />
                       ) : (
                         <AboutInactiveIcon
-                          className='w-5 h-5 mr-2'
+                          className='mr-2 w-5 h-5'
                           aria-hidden='true'
                         />
                       )}
@@ -78,7 +78,7 @@ export default function TopMenu() {
                 )}
               </Menu.Item>
             </div>
-            <div className='px-1 py-1'>
+            <div className='p-1'>
               <Menu.Item>
                 {({ active }) => (
                   <Link href='/contact' passHref>
@@ -89,12 +89,12 @@ export default function TopMenu() {
                     >
                       {active ? (
                         <ContactActiveIcon
-                          className='w-5 h-5 mr-2'
+                          className='mr-2 w-5 h-5'
                           aria-hidden='true'
                         />
                       ) : (
                         <ContactInactiveIcon
-                          className='w-5 h-5 mr-2'
+                          className='mr-2 w-5 h-5'
                           aria-hidden='true'
                         />
                       )}
@@ -104,7 +104,7 @@ export default function TopMenu() {
                 )}
               </Menu.Item>
             </div>
-            <div className='px-1 py-1'></div>
+            <div className='p-1'></div>
           </Menu.Items>
         </Transition>
       </Menu>
@@ -116,7 +116,7 @@ function HomeInactiveIcon(props: any) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      className='h-6 w-6'
+      className='w-6 h-6'
       fill='none'
       viewBox='0 0 24 24'
       stroke='currentColor'
@@ -135,7 +135,7 @@ function HomeActiveIcon(props: any) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      className='h-5 w-5'
+      className='w-5 h-5'
       viewBox='0 0 20 20'
       fill='currentColor'
     >
@@ -148,7 +148,7 @@ function AboutInactiveIcon(props: any) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      className='h-5 w-5'
+      className='w-5 h-5'
       viewBox='0 0 20 20'
       fill='currentColor'
     >
@@ -165,7 +165,7 @@ function AboutActiveIcon(props: any) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      className='h-5 w-5'
+      className='w-5 h-5'
       viewBox='0 0 20 20'
       fill='currentColor'
     >
@@ -179,7 +179,7 @@ function ContactInactiveIcon(props: any) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      className='h-6 w-6'
+      className='w-6 h-6'
       fill='none'
       viewBox='0 0 24 24'
       stroke='currentColor'
@@ -198,7 +198,7 @@ function ContactActiveIcon(props: any) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      className='h-6 w-6'
+      className='w-6 h-6'
       fill='none'
       viewBox='0 0 24 24'
       stroke='currentColor'
