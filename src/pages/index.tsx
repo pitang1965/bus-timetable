@@ -55,6 +55,7 @@ const Home: NextPage<{
     const work = selectedStationFrom;
     setSelectedStationFrom(selectedStationTo);
     setSelectedStationTo(work);
+    window.navigator.vibrate([200]);
   };
 
   useEffect(() => {
