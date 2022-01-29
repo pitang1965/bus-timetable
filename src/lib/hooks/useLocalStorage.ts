@@ -1,11 +1,14 @@
 import { useState } from 'react';
 
-export function useLocalStorage(key: string, initialValue: string='') {
+export function useLocalStorage(key: string, initialValue: string = '') {
   // localStorageの値の状態
   // 初期値の設定は一回だけおこなわれる。
   const [storedValue, setStoredValue] = useState(() => {
     try {
-      const item = window.localStorage.getItem(key);
+      let item = undefined;
+      if (typeof window !== 'undefined') {
+        item = window.localStorage.getItem(key);
+      }
       return item ? JSON.parse(item) : initialValue;
     } catch (error) {
       console.error(error);
