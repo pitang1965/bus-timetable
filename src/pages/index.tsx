@@ -9,70 +9,62 @@ import Head from 'next/head';
 import { StationListBox } from '../components/StationListBox';
 import { TimeTable } from '../components/TimeTable';
 import { SwitchHorizontalIcon } from '@heroicons/react/solid';
+import { useLocalStorage } from '../lib/hooks/useLocalStorage';
 
 const Home: NextPage<{
   stationData: FieldSet[] | undefined;
   timeTableData: FieldSet[] | undefined;
   busData: FieldSet[] | undefined;
 }> = ({ stationData, timeTableData, busData }) => {
-  const [selectedStationFrom, setSelectedStationFrom] = useState<
+  const [stationNameFrom, setStationNameFrom] =
+    useLocalStorage('stationNameFrom');
+  const [stationNameTo, setStationNameTo] = useLocalStorage('stationNameTo');
+  const [stationDataFrom, setStationDataFrom] = useState<
     FieldSet | undefined
   >();
-  const [selectedStationTo, setSelectedStationTo] = useState<
-    FieldSet | undefined
-  >();
+  const [stationDataTo, setStationDataTo] = useState<FieldSet | undefined>();
 
   // localStorageからデータを呼んで出発地と行き先を設定
   useEffect(() => {
-    const fromJson = localStorage.getItem('stationFrom');
-    if (fromJson === null) {
-      setSelectedStationFrom(stationData && stationData[0]);
+    if (stationNameFrom === '') {
+      setStationDataFrom(stationData && stationData[0]);
     } else {
-      const fromString = JSON.parse(fromJson);
-      setSelectedStationFrom(
+      setStationDataFrom(
         stationData &&
           stationData.find(function (record) {
-            return (record.fields as any).Name === fromString;
+            return (record.fields as any).Name === stationNameFrom;
           })
       );
     }
 
-    const toJson = localStorage.getItem('stationTo');
-    if (toJson === null) {
-      setSelectedStationTo(stationData && stationData[1]);
+    if (stationNameTo === '') {
+      setStationDataTo(stationData && stationData[1]);
     } else {
-      const toString = JSON.parse(toJson);
-      setSelectedStationTo(
+      setStationDataTo(
         stationData &&
           stationData.find(function (record) {
-            return (record.fields as any).Name === toString;
+            return (record.fields as any).Name === stationNameTo;
           })
       );
     }
   }, []);
 
   const transposeStations = () => {
-    const work = selectedStationFrom;
-    setSelectedStationFrom(selectedStationTo);
-    setSelectedStationTo(work);
+    const work = stationDataFrom;
+    setStationDataFrom(stationDataTo);
+    setStationDataTo(work);
     window.navigator.vibrate([200]);
   };
 
   useEffect(() => {
-    let json;
-
-    // 出発地をローカルストレージに保存
-    if (selectedStationFrom) {
-      json = JSON.stringify((selectedStationFrom?.fields as any).Name);
-      localStorage.setItem('stationFrom', json);
+    // 出発地と行き先のバス停名をローカルストレージに保存
+    if (stationDataFrom) {
+      setStationNameFrom((stationDataFrom?.fields as any).Name);
     }
-
-    // 行き先をローカルストレージに保存
-    if (selectedStationTo) {
-      json = JSON.stringify((selectedStationTo?.fields as any).Name);
-      localStorage.setItem('stationTo', json);
+    if (stationDataTo) {
+      setStationNameTo((stationDataTo?.fields as any).Name);
     }
-  }, [selectedStationFrom, selectedStationTo]);
+  }, [stationDataFrom, stationDataTo]);
 
   const gtag = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
 
@@ -103,8 +95,8 @@ const Home: NextPage<{
           <StationListBox
             label='出発地：'
             stations={stationData}
-            selected={selectedStationFrom}
-            setSelected={setSelectedStationFrom}
+            selected={stationDataFrom}
+            setSelected={setStationDataFrom}
           />
           <div className='flex justify-center mt-6'>
             <button
@@ -117,14 +109,14 @@ const Home: NextPage<{
           <StationListBox
             label='行き先：'
             stations={stationData}
-            selected={selectedStationTo}
-            setSelected={setSelectedStationTo}
+            selected={stationDataTo}
+            setSelected={setStationDataTo}
           />
           <TimeTable
             busTable={busData}
             timeTableTable={timeTableData}
-            from={selectedStationFrom}
-            to={selectedStationTo}
+            from={stationDataFrom}
+            to={stationDataTo}
           />
         </main>
       </Layout>
