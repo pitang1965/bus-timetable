@@ -24,20 +24,33 @@ const about = () => {
             <strong>[ホーム画面に追加]</strong>より）。
           </p>
           <p>
+            同僚に本アプリを勧める場合は、以下のバーコードをお使いください。
+          </p>
+          <figure className='flex flex-col mb-8'>
+            <Image
+              src={siteUrlBarcode}
+              alt='https://j-bus-time-table.vercel.app/'
+            />
+            <figcaption>本サイト「バス時刻表」のURL</figcaption>
+          </figure>
+          <p>
             データの問題など不具合があったら
             <Link href='/contact' passHref>
               <a>お問い合わせ</a>
             </Link>
             問い合わせフォームよりお願いします。
           </p>
-
-          <figure>
-            <Image
-              src={siteUrlBarcode}
-              alt='https://j-bus-time-table.vercel.app/'
-            />
-            <figcaption>サイトURL</figcaption>
-          </figure>
+          <h2>関連アプリ</h2>
+          <a
+            href='https://todays-lunch.vercel.app/'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            今日のお弁当
+            <span>
+              <Image src='/obento.svg' alt='バス時刻表' width={128} height={128} className='animate-bounce'/>
+            </span>
+          </a>
         </article>
       </main>
     </Layout>
