@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Layout from '../components/Layout';
 import Link from 'next/link';
 import siteUrlBarcode from '../../public/site-url.jpg';
@@ -61,7 +61,7 @@ const AboutContents = () => {
         </article>
       </main>
     </Layout>
-  )
-}
+  );
+};
 
-export default AboutContents
+export default AboutContents;
