@@ -1,7 +1,9 @@
 import Layout from '../components/Layout';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import Image from 'next/image';
 import siteUrlBarcode from '../../public/site-url.jpg';
+
+const Image = dynamic(() => import('next/image'));
 
 const about = () => {
   return (
@@ -48,7 +50,13 @@ const about = () => {
           >
             今日のお弁当
             <span>
-              <Image src='/obento.svg' alt='バス時刻表' width={128} height={128} className='animate-bounce'/>
+              <Image
+                src='/obento.svg'
+                alt='バス時刻表'
+                width={128}
+                height={128}
+                className='animate-bounce'
+              />
             </span>
           </a>
         </article>
