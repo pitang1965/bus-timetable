@@ -1,10 +1,10 @@
 import React from 'react';
-import Layout from '../components/Layout';
+import Layout from './Layout';
 import Link from 'next/link';
 import siteUrlBarcode from '../../public/site-url.jpg';
 import Image from 'next/image';
 
-const AboutContents = () => {
+const AboutPageContents = () => {
   return (
     <Layout>
       <main className='flex-col px-1'>
@@ -64,4 +64,4 @@ const AboutContents = () => {
   );
 };
 
-export default AboutContents;
+export default AboutPageContents;
