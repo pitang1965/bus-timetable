@@ -10,6 +10,7 @@ import { StationListBox } from '../components/StationListBox';
 import { TimeTable } from '../components/TimeTable';
 import { SwitchHorizontalIcon } from '@heroicons/react/solid';
 import { useLocalStorage } from '../lib/hooks/useLocalStorage';
+import { NotifyContainer, notifyInfo } from '../lib/notify';
 
 const Home: NextPage<{
   stationData: FieldSet[] | undefined;
@@ -23,6 +24,11 @@ const Home: NextPage<{
     FieldSet | undefined
   >();
   const [stationDataTo, setStationDataTo] = useState<FieldSet | undefined>();
+
+  // お知らせ
+  useEffect(() => {
+    notifyInfo('平田へのお弁当注文アプリあります。「本アプリについて」参照。');
+  }, []);
 
   // localStorageからデータを呼んで出発地と行き先を設定
   useEffect(() => {
@@ -120,6 +126,7 @@ const Home: NextPage<{
           />
         </main>
       </Layout>
+      <NotifyContainer />
     </>
   );
 };

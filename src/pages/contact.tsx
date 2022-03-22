@@ -2,6 +2,11 @@ import React from 'react';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import Layout from '../components/Layout';
+import {
+  NotifyContainer,
+  notifySuccess,
+  notifyError,
+} from '../lib/notify';
 
 type Inputs = {
   name: string;
@@ -29,10 +34,10 @@ const contact = withPageAuthRequired(({ user }: { user: any }) => {
       });
       console.log('res: ', res);
       reset();
-      alert('お問い合わせが送信されました。');
+      notifySuccess('お問い合わせが送信されました。');
     } catch (error) {
       console.error('Fetch error : ', error);
-      alert(JSON.stringify(error));
+      notifyError(JSON.stringify(error));
     }
   };
 
@@ -84,6 +89,7 @@ const contact = withPageAuthRequired(({ user }: { user: any }) => {
             type='submit'
             className='block py-2 px-4 mx-auto mt-4 text-white bg-blue-600 hover:bg-blue-700 rounded'
           />
+          <NotifyContainer />
         </form>
       </main>
     </Layout>
