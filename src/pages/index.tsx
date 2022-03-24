@@ -27,7 +27,7 @@ const Home: NextPage<{
 
   // お知らせ
   useEffect(() => {
-    notifyInfo('平田へのお弁当注文アプリあります。「本アプリについて」参照。');
+    notifyInfo('3/24:立川バス修正。平田お弁当注文アプリあります。');
   }, []);
 
   // localStorageからデータを呼んで出発地と行き先を設定
