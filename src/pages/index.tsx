@@ -28,7 +28,7 @@ const Home: NextPage<{
   // お知らせ
   useEffect(() => {
     notifyInfo('4月ダイヤを反映済');
-    notifyInfo('平田お弁当注文アプリあります！');
+    notifyInfo('平田お弁当注文アプリもどうぞ!');
   }, []);
 
   // localStorageからデータを呼んで出発地と行き先を設定
