@@ -27,7 +27,8 @@ const Home: NextPage<{
 
   // お知らせ
   useEffect(() => {
-    notifyInfo('3/24:立川バス修正。平田お弁当注文アプリあります。');
+    notifyInfo('2022-04-01ダイヤを反映しました!');
+    notifyInfo('平田お弁当注文アプリもご利用ください。');
   }, []);
 
   // localStorageからデータを呼んで出発地と行き先を設定
