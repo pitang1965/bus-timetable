@@ -13,7 +13,7 @@ const AboutPageContents = () => {
         </h1>
         <article className='prose lg:prose-xl'>
           <h2>概要</h2>
-          <p>ME品証のまきのSです。</p>
+          <p>ME品証のまきのです。</p>
           <p>これは会社のバスの時刻を調べるためのアプリです。</p>
           <p>2021年度の年末年始で新技術の学習を兼ねて作成したものです。</p>
           <h2>お願い</h2>
