@@ -27,7 +27,6 @@ const Home: NextPage<{
 
   // お知らせ
   useEffect(() => {
-    notifyInfo('4月ダイヤを反映済');
     notifyInfo('平田お弁当注文アプリもどうぞ!');
   }, []);
 
