@@ -37,9 +37,9 @@ const AboutPageContents = () => {
           <p>
             データの問題など不具合があったら
             <Link href='/contact' passHref>
-              <a>お問い合わせ</a>
+              <a>お問い合わせフォーム</a>
             </Link>
-            問い合わせフォームよりお願いします。
+            よりお願いします。
           </p>
           <h2>関連アプリ</h2>
           <a
