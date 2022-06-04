@@ -10,7 +10,7 @@ import { StationListBox } from '../components/StationListBox';
 import { TimeTable } from '../components/TimeTable';
 import { SwitchHorizontalIcon } from '@heroicons/react/solid';
 import { useLocalStorage } from '../lib/hooks/useLocalStorage';
-import { Announcement } from '../components/Announcemnt';
+import { Announcement } from '../components/Announcement';
 
 const Home: NextPage<{
   stationData: FieldSet[] | undefined;
