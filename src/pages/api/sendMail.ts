@@ -11,7 +11,7 @@ export default async function handler(
   const msg: MailDataRequired = {
     to: process.env.MAIL_TO,
     from: process.env.MAIL_FROM as EmailData,
-    subject: 'JEOL時刻表アプリからの問い合わせ',
+    subject: '時刻表アプリからの問い合わせ',
     text: `${req.body.name}さん（職場：${req.body.department}）からの問い合わせ: ${req.body.inquiry}`,
     html: `
     <strong>${req.body.name}さんからの問い合わせ</strong>
