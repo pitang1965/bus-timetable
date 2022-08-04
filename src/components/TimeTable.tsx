@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import type { VFC } from 'react';
+import type { FC } from 'react';
 import type { FieldSet } from 'airtable';
 
 type TimeTableProps = {
@@ -31,7 +31,7 @@ const formatTimeString = (
   return finalString;
 };
 
-export const TimeTable: VFC<TimeTableProps> = ({
+export const TimeTable: FC<TimeTableProps> = ({
   busTable,
   timeTableTable,
   from,
