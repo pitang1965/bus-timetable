@@ -1,7 +1,7 @@
 import React from 'react';
-import Layout from './Layout';
+import Layout from 'src/components/Layout';
 import Link from 'next/link';
-import siteUrlBarcode from '../../public/site-url.jpg';
+import siteUrlBarcode from 'public/site-url.jpg';
 import Image from 'next/image';
 
 const AboutPageContents = () => {

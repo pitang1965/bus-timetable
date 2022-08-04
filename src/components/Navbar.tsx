@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import TopMenu from '../components/TopMenu';
+import TopMenu from 'src/components/TopMenu';
 import Link from 'next/link';
 import { useUser } from '@auth0/nextjs-auth0';
 

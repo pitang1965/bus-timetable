@@ -1,4 +1,4 @@
-import { GA_TRACKING_ID } from '../lib/gtag';
+import { GA_TRACKING_ID } from 'src/lib/gtag';
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
 import React from 'react';
 

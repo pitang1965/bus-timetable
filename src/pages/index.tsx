@@ -1,16 +1,16 @@
 /* eslint-disable @next/next/inline-script-id */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
-import Layout from '../components/Layout';
+import Layout from 'src/components/Layout';
 import Script from 'next/script';
 import type { GetStaticProps, NextPage } from 'next';
 import { FieldSet } from 'airtable';
 import Head from 'next/head';
-import { StationListBox } from '../components/StationListBox';
-import { TimeTable } from '../components/TimeTable';
+import { StationListBox } from 'src/components/StationListBox';
+import { TimeTable } from 'src/components/TimeTable';
 import { SwitchHorizontalIcon } from '@heroicons/react/solid';
-import { useLocalStorage } from '../lib/hooks/useLocalStorage';
-import { Announcement } from '../components/Announcement';
+import { useLocalStorage } from 'src/lib/hooks/useLocalStorage';
+import { Announcement } from 'src/components/Announcement';
 
 const Home: NextPage<{
   stationData: FieldSet[] | undefined;

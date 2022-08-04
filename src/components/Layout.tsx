@@ -1,6 +1,6 @@
 import type { ReactNode, VFC } from 'react';
-import Navbar from './Navbar';
-import Footer from './Footer';
+import Navbar from 'src/components/Navbar';
+import Footer from 'src/components/Footer';
 
 type Props = {
   children: ReactNode;
