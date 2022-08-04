@@ -28,7 +28,7 @@ export default function Navbar() {
 
   return (
     <div className='flex flex-col'>
-      <nav className='flex justify-between items-center'>
+      <nav className='flex items-center justify-between'>
         <div className='basis-1/3'>
           <TopMenu />
         </div>
@@ -44,7 +44,7 @@ export default function Navbar() {
                 setIsLoggingOut(true);
                 setMessage('ログアウト中です。お待ちください...');
               }}
-              className={`rounded bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 ${
+              className={`rounded bg-blue-600 py-2 px-4 text-white hover:bg-blue-700 ${
                 !user || isLoggingOut ? 'hidden' : ''
               }`}
             >
@@ -53,7 +53,7 @@ export default function Navbar() {
           </Link>
           <Link href='/api/auth/login'>
             <a
-              className={`rounded bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 ${
+              className={`rounded bg-blue-600 py-2 px-4 text-white hover:bg-blue-700 ${
                 user || isLoggingOut ? 'hidden' : ''
               }`}
             >
@@ -62,7 +62,7 @@ export default function Navbar() {
           </Link>
         </div>
       </nav>
-      {user && <p className='self-center mx-2 mt-2'>{message}</p>}
+      {user && <p className='mx-2 mt-2 self-center'>{message}</p>}
     </div>
   );
 }

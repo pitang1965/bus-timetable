@@ -8,7 +8,7 @@ type Props = {
 
 const Layout: VFC<Props> = (props) => {
   return (
-    <div className='container grid grid-rows-[76px,auto,30px] p-2 mx-auto max-w-xl min-h-screen bg-gradient-to-r from-violet-300 to-fuchsia-300'>
+    <div className='container mx-auto grid min-h-screen max-w-xl grid-rows-[76px,auto,30px] bg-gradient-to-r from-violet-300 to-fuchsia-300 p-2'>
       <Navbar />
       <main>{props.children}</main>
       <Footer />

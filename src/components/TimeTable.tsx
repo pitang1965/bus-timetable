@@ -78,17 +78,17 @@ export const TimeTable: VFC<TimeTableProps> = ({
   const cellClassName = 'border-2 border-slate-400 px-1';
 
   return (
-    <main className='pt-4 mt-4'>
+    <main className='mt-4 pt-4'>
       {filteredTimeTable && filteredTimeTable.length === 0 ? (
         <div>
           データがありません。公共バスのデータは現在以下だけです。
-          <ul className='ml-4 list-disc list-inside'>
+          <ul className='ml-4 list-inside list-disc'>
             <li>立川駅北口 ⇔ 榎木一丁目</li>
             <li>村山ハイツ ⇒ 昭島駅北口</li>
           </ul>
         </div>
       ) : (
-        <table className={`table-auto w-full ${cellClassName}`}>
+        <table className={`w-full table-auto ${cellClassName}`}>
           <thead>
             <tr>
               <th className={cellClassName}>時刻</th>
