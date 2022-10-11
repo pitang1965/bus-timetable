@@ -8,7 +8,7 @@ import { FieldSet } from 'airtable';
 import Head from 'next/head';
 import { StationListBox } from 'src/components/StationListBox';
 import { TimeTable } from 'src/components/TimeTable';
-import { SwitchHorizontalIcon } from '@heroicons/react/solid';
+import { ArrowsRightLeftIcon } from '@heroicons/react/20/solid';
 import { useLocalStorage } from 'src/lib/hooks/useLocalStorage';
 import { Announcement } from 'src/components/Announcement';
 
@@ -105,7 +105,7 @@ const Home: NextPage<{
               aria-label='出発時と行き先を入れ替え'
               onClick={transposeStations}
             >
-              <SwitchHorizontalIcon className='h-10 w-10 rounded bg-blue-600 text-white hover:bg-blue-700' />
+              <ArrowsRightLeftIcon className='h-10 w-10 rounded bg-blue-600 text-white hover:bg-blue-700' />
             </button>
           </div>
           <StationListBox
