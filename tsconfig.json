@@ -14,7 +14,12 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "javascript.suggest.autoImports": true,
+    "typescript.suggest.autoImports": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "source.organizeImports": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/_document.tsx"],
   "exclude": ["node_modules"]
