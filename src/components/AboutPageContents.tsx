@@ -17,8 +17,8 @@ const AboutPageContents = () => {
           <p>2021年度の年末年始で新技術の学習を兼ねて作成したものです。</p>
           <h2>お願い</h2>
           <p>
-            現在、データは更新されていません。
-            本Webアプリは<abbr title='Progressive Web App'>PWA</abbr>
+            現在、データは更新されていません。 本Webアプリは
+            <abbr title='Progressive Web App'>PWA</abbr>
             なのでWindows, Android,
             iOSにインストール可能です。ぜひ、インストールしてお使いください（
             <strong>iOS</strong>は<strong>Safari</strong>の
@@ -36,8 +36,8 @@ const AboutPageContents = () => {
           </figure>
           <p>
             データの問題など不具合があったら
-            <Link href='/contact' passHref>
-              <a>お問い合わせフォーム</a>
+            <Link href='/contact' passHref legacyBehavior>
+              お問い合わせフォーム
             </Link>
             よりお願いします。
           </p>

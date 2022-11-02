@@ -38,8 +38,8 @@ export default function Navbar() {
           </Link>
         </div>
         <div className='basis-1/3 text-right'>
-          <Link href='/api/auth/logout'>
-            <a
+          <Link href='/api/auth/logout' legacyBehavior>
+            <p
               onClick={() => {
                 setIsLoggingOut(true);
                 setMessage('ログアウト中です。お待ちください...');
@@ -49,9 +49,9 @@ export default function Navbar() {
               }`}
             >
               ログアウト
-            </a>
+            </p>
           </Link>
-          <Link href='/api/auth/login'>
+          <Link href='/api/auth/login' legacyBehavior>
             <a
               className={`rounded bg-blue-600 py-2 px-4 text-white hover:bg-blue-700 ${
                 user || isLoggingOut ? 'hidden' : ''
