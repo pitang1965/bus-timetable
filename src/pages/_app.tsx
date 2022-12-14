@@ -2,7 +2,7 @@ import 'styles/globals.css';
 import { GA_TRACKING_ID, pageview } from 'src/lib/gtag';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import { UserProvider } from '@auth0/nextjs-auth0';
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 
 import type { ReactElement, ReactNode } from 'react';
 import type { NextPage } from 'next';

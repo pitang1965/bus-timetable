@@ -1,5 +1,5 @@
 import React from 'react';
-import { withPageAuthRequired } from '@auth0/nextjs-auth0';
+import { withPageAuthRequired as withPageAuthRequiredCSR } from '@auth0/nextjs-auth0/client';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import Layout from 'src/components/Layout';
 import {
@@ -14,7 +14,7 @@ type Inputs = {
   inquiry: string;
 };
 
-const contact = withPageAuthRequired(({ user }: { user: any }) => {
+const contact = withPageAuthRequiredCSR(({ user }: { user: any }) => {
   const {
     register,
     handleSubmit,
