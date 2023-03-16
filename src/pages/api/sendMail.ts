@@ -1,6 +1,4 @@
 import sgMail from '@sendgrid/mail';
-import { MailDataRequired } from '@sendgrid/helpers/classes/mail';
-import { EmailData } from '@sendgrid/helpers/classes/email-address';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(
@@ -8,9 +6,9 @@ export default async function handler(
   res: NextApiResponse<any>
 ) {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY as string);
-  const msg: MailDataRequired = {
+  const msg: any = {
     to: process.env.MAIL_TO,
-    from: process.env.MAIL_FROM as EmailData,
+    from: process.env.MAIL_FROM,
     subject: '時刻表アプリからの問い合わせ',
     text: `${req.body.name}さん（職場：${req.body.department}）からの問い合わせ: ${req.body.inquiry}`,
     html: `
