@@ -15,7 +15,7 @@
     "@tailwindcss/typography": "0.5.9",
     "airtable": "0.11.6",
     "helpers": "link:C:/Program Files/Git/helpers",
-    "next": "13.3.0",
+    "next": "13.3.1",
     "next-pwa": "5.6.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -24,14 +24,14 @@
   },
   "devDependencies": {
     "@types/gtag.js": "0.0.12",
-    "@types/node": "18.15.11",
-    "@types/react": "18.0.37",
+    "@types/node": "18.16.1",
+    "@types/react": "18.2.0",
     "autoprefixer": "10.4.14",
-    "eslint": "8.38.0",
-    "eslint-config-next": "13.3.0",
+    "eslint": "8.39.0",
+    "eslint-config-next": "13.3.1",
     "eslint-plugin-tailwindcss": "3.11.0",
-    "postcss": "8.4.22",
-    "tailwindcss": "3.3.1",
+    "postcss": "8.4.23",
+    "tailwindcss": "3.3.2",
     "typescript": "5.0.4"
   }
 }
