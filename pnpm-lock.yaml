@@ -21,7 +21,7 @@ dependencies:
     version: 0.11.6
   helpers:
     specifier: link:C:/Program Files/Git/helpers
-    version: link:../../../../../Program Files/Git/helpers
+    version: link:C:/Program Files/Git/helpers
   next:
     specifier: 13.3.4
     version: 13.3.4(@babel/core@7.21.0)(react-dom@18.2.0)(react@18.2.0)
