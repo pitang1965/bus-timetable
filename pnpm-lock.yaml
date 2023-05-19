@@ -17,8 +17,8 @@ dependencies:
     specifier: 0.5.9
     version: 0.5.9(tailwindcss@3.3.2)
   airtable:
-    specifier: 0.11.6
-    version: 0.11.6
+    specifier: 0.12.1
+    version: 0.12.1
   helpers:
     specifier: link:C:/Program Files/Git/helpers
     version: link:C:/Program Files/Git/helpers
@@ -1928,8 +1928,8 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  /airtable@0.11.6:
-    resolution: {integrity: sha512-Na67L2TO1DflIJ1yOGhQG5ilMfL2beHpsR+NW/jhaYOa4QcoxZOtDFs08cpSd1tBMsLpz5/rrz/VMX/pGL/now==}
+  /airtable@0.12.1:
+    resolution: {integrity: sha512-wS49QIO46YjSUbRIslX6pJaAGsdzOFPtYfaARYsBifsev10TDsyXc5IBYX6b3JQs4SZ8A5+g/vbQ5IfPvbnc+w==}
     engines: {node: '>=8.0.0'}
     dependencies:
       '@types/node': 14.18.37
