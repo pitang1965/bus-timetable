@@ -9,7 +9,7 @@ import Head from 'next/head';
 import { StationListBox } from 'src/components/StationListBox';
 import { TimeTable } from 'src/components/TimeTable';
 import { ArrowsRightLeftIcon } from '@heroicons/react/20/solid';
-import { useLocalStorage } from 'src/lib/hooks/useLocalStorage';
+import { useLocalStorage } from 'src/lib/useLocalStorage';
 import { Announcement } from 'src/components/Announcement';
 
 const Home: NextPage<{
