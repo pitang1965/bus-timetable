@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@auth0/nextjs-auth0':
-    specifier: 3.3.0
-    version: 3.3.0(next@14.0.3)
+    specifier: 3.4.0
+    version: 3.4.0(next@14.0.3)
   '@headlessui/react':
     specifier: ^1.7.17
     version: 1.7.17(react-dom@18.2.0)(react@18.2.0)
@@ -114,8 +114,8 @@ packages:
       leven: 3.1.0
     dev: false
 
-  /@auth0/nextjs-auth0@3.3.0(next@14.0.3):
-    resolution: {integrity: sha512-zIBeb2OuLIv0SyNEJaqfBbmwsaPLi1CAlnwOIRloABPI2nX0k0Sp959FiI7uUfJkUzqW8xtCyE56MDl4bs9WLQ==}
+  /@auth0/nextjs-auth0@3.4.0(next@14.0.3):
+    resolution: {integrity: sha512-XWK7MJiUVwQjU3WK9pWN501QrwhFiWr8Bo6di5+zv8wvz1pfN2qR3lmFgR7MLWhZ7yCdb7gSxD7MtBa9VtXQww==}
     engines: {node: '>=16'}
     peerDependencies:
       next: '>=10'
