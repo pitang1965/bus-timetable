@@ -1,9 +1,11 @@
 import Airtable from 'airtable';
 import type { FieldSet, Records } from 'airtable';
 
-const base = new Airtable({
-  apiKey: process.env.AIRTABLE_API_KEY,
-}).base(process.env.AIRTABLE_BASE_ID as string);
+Airtable.configure({
+  endpointUrl: 'https://api.airtable.com',
+  apiKey: process.env.AIRTABLE_API_TOKEN
+});
+var base = Airtable.base(process.env.AIRTABLE_BASE_ID as string);
 
 const busTable = base('Bus')
 const stationTable = base('Station');
