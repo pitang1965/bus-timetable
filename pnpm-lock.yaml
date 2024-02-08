@@ -47,8 +47,8 @@ dependencies:
 
 devDependencies:
   '@types/gtag.js':
-    specifier: 0.0.18
-    version: 0.0.18
+    specifier: 0.0.19
+    version: 0.0.19
   '@types/node':
     specifier: 20.11.9
     version: 20.11.9
@@ -1705,8 +1705,8 @@ packages:
       '@types/node': 20.11.9
     dev: false
 
-  /@types/gtag.js@0.0.18:
-    resolution: {integrity: sha512-GJxnIvuXuVhKaHfsOdzGipoOoXq72y3mdcncc9h6i6E7nlz89zBEj2wrLM7bqO5Xk9Lm2B94MwdQsSwRlaPSWw==}
+  /@types/gtag.js@0.0.19:
+    resolution: {integrity: sha512-KHoDzrf9rSd0mooKN576PjExpdk/XRrNu4RQnmigsScSTSidwyOUe9kDrHz9UPKjiBrx2QEsSkexbJSgS0j72w==}
     dev: true
 
   /@types/json-schema@7.0.11:
