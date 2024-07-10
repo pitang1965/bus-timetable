@@ -12,8 +12,8 @@ dependencies:
     specifier: ^1.7.17
     version: 1.7.17(react-dom@18.2.0)(react@18.2.0)
   '@heroicons/react':
-    specifier: 2.1.1
-    version: 2.1.1(react@18.2.0)
+    specifier: 2.1.5
+    version: 2.1.5(react@18.2.0)
   '@sendgrid/mail':
     specifier: 8.1.0
     version: 8.1.0
@@ -1542,8 +1542,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@heroicons/react@2.1.1(react@18.2.0):
-    resolution: {integrity: sha512-JyyN9Lo66kirbCMuMMRPtJxtKJoIsXKS569ebHGGRKbl8s4CtUfLnyKJxteA+vIKySocO4s1SkTkGS4xtG/yEA==}
+  /@heroicons/react@2.1.5(react@18.2.0):
+    resolution: {integrity: sha512-FuzFN+BsHa+7OxbvAERtgBTNeZpUjgM/MIizfVkSCL2/edriN0Hx/DWRCR//aPYwO5QX/YlgLGXk+E3PcfZwjA==}
     peerDependencies:
       react: '>= 16'
     dependencies:
