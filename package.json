@@ -11,7 +11,7 @@
     "@auth0/nextjs-auth0": "3.5.0",
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "2.1.1",
-    "@sendgrid/mail": "8.1.0",
+    "@sendgrid/mail": "8.1.4",
     "@tailwindcss/typography": "0.5.10",
     "airtable": "0.12.2",
     "helpers": "link:C:/Program Files/Git/helpers",
