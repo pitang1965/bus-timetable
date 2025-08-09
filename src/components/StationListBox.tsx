@@ -21,13 +21,13 @@ export const StationListBox: FC<StationListBoxProps> = ({
     <Listbox value={selected} onChange={setSelected}>
       <div className='relative mt-4'>
         <Listbox.Label className='font-bold'>{label}</Listbox.Label>
-        <Listbox.Button className='relative z-0 mt-2 w-full cursor-default rounded-lg bg-white py-2 pr-10 pl-3 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm'>
+        <Listbox.Button className='relative z-0 mt-2 w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm'>
           <span className='block truncate'>
             {(selected?.fields as any)?.Name}
           </span>
           <span className='pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2'>
             <ChevronUpDownIcon
-              className='h-5 w-5 text-gray-400'
+              className='size-5 text-gray-400'
               aria-hidden='true'
             />
           </span>
@@ -65,7 +65,7 @@ export const StationListBox: FC<StationListBoxProps> = ({
                           }
                       absolute inset-y-0 left-0 flex items-center pl-3`}
                         >
-                          <CheckIcon className='h-5 w-5' aria-hidden='true' />
+                          <CheckIcon className='size-5' aria-hidden='true' />
                         </span>
                       ) : null}
                     </>

@@ -48,7 +48,7 @@ const contact = withPageAuthRequiredCSR(({ user }: { user: any }) => {
           お問い合わせ
         </h1>
         <p className='mt-8'>牧野SのGmailに送られます。</p>
-        <form onSubmit={handleSubmit(onSubmit)} className='my-4 mx-2'>
+        <form onSubmit={handleSubmit(onSubmit)} className='mx-2 my-4'>
           <fieldset className='flex gap-2'>
             <label className='w-16 p-1'>名前</label>
             <input
@@ -87,7 +87,7 @@ const contact = withPageAuthRequiredCSR(({ user }: { user: any }) => {
           )}
           <input
             type='submit'
-            className='mx-auto mt-4 block rounded bg-blue-600 py-2 px-4 text-white hover:bg-blue-700'
+            className='mx-auto mt-4 block rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700'
           />
           <NotifyContainer />
         </form>

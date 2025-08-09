@@ -105,7 +105,7 @@ const Home: NextPage<{
               aria-label='出発時と行き先を入れ替え'
               onClick={transposeStations}
             >
-              <ArrowsRightLeftIcon className='h-10 w-10 rounded bg-blue-600 text-white hover:bg-blue-700' />
+              <ArrowsRightLeftIcon className='size-10 rounded bg-blue-600 text-white hover:bg-blue-700' />
             </button>
           </div>
           <StationListBox

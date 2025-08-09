@@ -44,7 +44,7 @@ export default function Navbar() {
                 setIsLoggingOut(true);
                 setMessage('ログアウト中です。お待ちください...');
               }}
-              className={`rounded bg-blue-600 py-2 px-4 text-white hover:bg-blue-700 ${
+              className={`rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 ${
                 !user || isLoggingOut ? 'hidden' : ''
               }`}
             >
@@ -53,7 +53,7 @@ export default function Navbar() {
           </Link>
           <Link href='/api/auth/login' legacyBehavior>
             <a
-              className={`rounded bg-blue-600 py-2 px-4 text-white hover:bg-blue-700 ${
+              className={`rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 ${
                 user || isLoggingOut ? 'hidden' : ''
               }`}
             >

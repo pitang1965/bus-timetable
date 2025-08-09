@@ -13,7 +13,7 @@ export default function TopMenu() {
             className='inline-flex w-full justify-center rounded-md bg-black/40 p-2 text-black hover:bg-black/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75'
           >
             <Bars3Icon
-              className='h-5 w-5 text-violet-200 hover:text-violet-100'
+              className='size-5 text-violet-200 hover:text-violet-100'
               aria-hidden='true'
             />
           </Menu.Button>
@@ -39,12 +39,12 @@ export default function TopMenu() {
                     >
                       {active ? (
                         <HomeActiveIcon
-                          className='mr-2 h-5 w-5'
+                          className='mr-2 size-5'
                           aria-hidden='true'
                         />
                       ) : (
                         <HomeInactiveIcon
-                          className='mr-2 h-5 w-5'
+                          className='mr-2 size-5'
                           aria-hidden='true'
                         />
                       )}
@@ -63,12 +63,12 @@ export default function TopMenu() {
                     >
                       {active ? (
                         <AboutActiveIcon
-                          className='mr-2 h-5 w-5'
+                          className='mr-2 size-5'
                           aria-hidden='true'
                         />
                       ) : (
                         <AboutInactiveIcon
-                          className='mr-2 h-5 w-5'
+                          className='mr-2 size-5'
                           aria-hidden='true'
                         />
                       )}
@@ -89,12 +89,12 @@ export default function TopMenu() {
                     >
                       {active ? (
                         <ContactActiveIcon
-                          className='mr-2 h-5 w-5'
+                          className='mr-2 size-5'
                           aria-hidden='true'
                         />
                       ) : (
                         <ContactInactiveIcon
-                          className='mr-2 h-5 w-5'
+                          className='mr-2 size-5'
                           aria-hidden='true'
                         />
                       )}
@@ -116,7 +116,7 @@ function HomeInactiveIcon(props: any) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      className='h-6 w-6'
+      className='size-6'
       fill='none'
       viewBox='0 0 24 24'
       stroke='currentColor'
@@ -135,7 +135,7 @@ function HomeActiveIcon(props: any) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      className='h-5 w-5'
+      className='size-5'
       viewBox='0 0 20 20'
       fill='currentColor'
     >
@@ -148,7 +148,7 @@ function AboutInactiveIcon(props: any) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      className='h-5 w-5'
+      className='size-5'
       viewBox='0 0 20 20'
       fill='currentColor'
     >
@@ -165,7 +165,7 @@ function AboutActiveIcon(props: any) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      className='h-5 w-5'
+      className='size-5'
       viewBox='0 0 20 20'
       fill='currentColor'
     >
@@ -179,7 +179,7 @@ function ContactInactiveIcon(props: any) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      className='h-6 w-6'
+      className='size-6'
       fill='none'
       viewBox='0 0 24 24'
       stroke='currentColor'
@@ -198,7 +198,7 @@ function ContactActiveIcon(props: any) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      className='h-6 w-6'
+      className='size-6'
       fill='none'
       viewBox='0 0 24 24'
       stroke='currentColor'
